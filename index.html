@@ -333,7 +333,11 @@
   .browser .view .bnav span{ color:rgba(255,255,255,.8); font-family:'Barlow Semi Condensed'; font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; }
   .browser .view .bcut2{ position:absolute; right:0; bottom:0; width:9%; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
 
-  footer{ background:var(--ink); color:#fff; padding:clamp(56px,8vw,110px) var(--pad) 40px; position:relative; overflow:hidden; }
+  footer{
+    background-color:var(--ink); color:#fff; padding:clamp(56px,8vw,110px) var(--pad) 40px; position:relative; overflow:hidden;
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.045) 0 22px, transparent 22px 26px);
+  }
+  footer .top, footer .base{ position:relative; z-index:1; }
   footer .top{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px; }
   footer .big{ font-size:clamp(34px,5vw,84px); font-weight:600; line-height:1.05; letter-spacing:-.015em; }
   footer .big .o{ color:var(--orange); }
@@ -348,6 +352,8 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
     font-family:'Barlow Semi Condensed',sans-serif; font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5);
   }
+  footer .base a{ color:rgba(255,255,255,.5); text-decoration:none; transition:color .3s; }
+  footer .base a:hover{ color:var(--orange); }
   footer .fcut{ position:absolute; right:0; top:0; width:clamp(60px,7vw,110px); aspect-ratio:1; background:var(--orange); clip-path:polygon(0 0,100% 0,100% 100%); }
 </style>
 </head>
@@ -682,7 +688,7 @@
   <div class="base">
     <span>Leasing - Cushman &amp; Wakefield</span>
     <span>Brand guidelines V1 - 2026</span>
-    <span>Design - wouter.studio</span>
+    <span>Design - <a href="https://wouter.studio" target="_blank" rel="noopener">wouter.studio</a></span>
     <span>firstrotterdam.nl</span>
   </div>
 </footer>
