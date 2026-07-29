@@ -2,362 +2,428 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>FIRST Rotterdam — Brand Guidelines</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FIRST Rotterdam — Brand</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Semi+Condensed:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
   :root{
     --slate:#7B8899; --ink:#1F2630; --orange:#FF5A00;
     --mist:#E9EDF1; --cloud:#F7F8FA; --slate-60:#A6B0BD; --slate-20:#D9DEE4;
+    --pad: clamp(20px, 5vw, 96px);
   }
-  body{ font-family:'Inter',sans-serif; background:#DDD; }
-  .page{
-    width:1920px; height:1080px; position:relative; overflow:hidden;
-    background:#fff; margin:0 auto 24px auto; color:var(--ink);
-  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Inter',sans-serif; color:var(--ink); background:#fff; overflow-x:hidden; }
   h1,h2,h3,.display{ font-family:'Barlow',sans-serif; }
+  img{ max-width:100%; display:block; }
+  section{ padding: clamp(64px,10vw,140px) var(--pad); }
+
   .eyebrow{
     font-family:'Barlow Semi Condensed',sans-serif; font-weight:500;
-    font-size:22px; letter-spacing:4px; text-transform:uppercase; color:var(--slate);
+    font-size:clamp(13px,1.2vw,17px); letter-spacing:.28em; text-transform:uppercase; color:var(--slate);
   }
-  .eyebrow.on-dark{ color:rgba(255,255,255,.75); }
-  .footer{
-    position:absolute; left:100px; right:100px; bottom:52px;
-    display:flex; justify-content:space-between; align-items:center;
-    font-family:'Barlow Semi Condensed',sans-serif; font-size:19px; letter-spacing:2px;
-    text-transform:uppercase; color:var(--slate-60);
+  .h-xl{ font-size:clamp(34px,5.4vw,92px); font-weight:600; line-height:1.08; letter-spacing:-.015em; }
+  .h-lg{ font-size:clamp(28px,3.6vw,58px); font-weight:600; line-height:1.12; letter-spacing:-.01em; }
+  .h-md{ font-size:clamp(20px,1.8vw,28px); font-weight:600; }
+  .body{ font-size:clamp(15px,1.15vw,19px); line-height:1.7; font-weight:300; color:#3D4653; }
+
+  /* reveal animations */
+  .reveal{ opacity:0; transform:translateY(36px); transition:opacity .9s cubic-bezier(.16,1,.3,1), transform .9s cubic-bezier(.16,1,.3,1); }
+  .reveal.in{ opacity:1; transform:none; }
+  .reveal.d1{ transition-delay:.1s } .reveal.d2{ transition-delay:.2s } .reveal.d3{ transition-delay:.3s }
+
+  /* nav */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px var(--pad);
+    background:rgba(255,255,255,0); backdrop-filter:none;
+    transition:background .4s, box-shadow .4s, backdrop-filter .4s;
   }
-  .footer .mark{ height:26px; }
-  .body{ font-size:24px; line-height:1.65; font-weight:300; color:#3D4653; }
-  .swatch-label{ font-family:'Barlow Semi Condensed',sans-serif; font-size:20px; letter-spacing:2px; text-transform:uppercase; }
-  .cut{ clip-path:polygon(0 0, 100% 0, 100% calc(100% - 56px), calc(100% - 56px) 100%, 0 100%); }
-  .ph{
-    background:repeating-linear-gradient(45deg,#E4E8EC 0,#E4E8EC 14px,#EDF0F3 14px,#EDF0F3 28px);
-    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px;
+  nav.scrolled{ background:rgba(255,255,255,.86); backdrop-filter:blur(14px); box-shadow:0 1px 0 rgba(31,38,48,.08); }
+  nav .brand{ display:flex; align-items:center; gap:12px; }
+  nav .brand img.fmark{ width:30px; height:30px; }
+  nav .brand img.word{ height:20px; transition:filter .4s; }
+  nav:not(.scrolled) .brand img.word{ filter:brightness(0) invert(1); }
+  nav:not(.scrolled) .links a{ color:rgba(255,255,255,.85); }
+  nav .links{ display:flex; gap:clamp(14px,2.4vw,34px); }
+  nav .links a{
+    font-family:'Barlow Semi Condensed',sans-serif; font-size:14px; letter-spacing:.18em;
+    text-transform:uppercase; text-decoration:none; color:var(--ink); transition:color .3s;
   }
-  .ph span{ font-family:'Barlow Semi Condensed',sans-serif; font-size:20px; letter-spacing:3px; text-transform:uppercase; color:var(--slate); }
-  .ph .cam{ width:54px; height:40px; border:3px solid var(--slate-60); border-radius:8px; position:relative; }
-  .ph .cam:after{ content:''; position:absolute; width:16px; height:16px; border:3px solid var(--slate-60); border-radius:50%; top:7px; left:14px; }
+  nav .links a:hover{ color:var(--orange); }
+  #progress{ position:fixed; top:0; left:0; height:3px; background:var(--orange); width:0; z-index:101; }
+  @media (max-width:760px){ nav .links{ display:none; } }
+
+  /* hero */
+  header.hero{
+    position:relative; min-height:100svh; display:flex; align-items:flex-end;
+    color:#fff; overflow:hidden;
+  }
+  .hero .bg{
+    position:absolute; inset:-12% 0; background:url('img/first-2.jpg') center/cover no-repeat;
+    will-change:transform;
+  }
+  .hero .shade{ position:absolute; inset:0; background:linear-gradient(to top, rgba(21,26,34,.82) 0%, rgba(21,26,34,.25) 45%, rgba(21,26,34,.35) 100%); }
+  .hero .inner{ position:relative; padding:0 var(--pad) clamp(48px,8vw,110px); width:100%; }
+  .hero h1{ font-size:clamp(42px,7.4vw,128px); font-weight:600; line-height:1.02; letter-spacing:-.02em; }
+  .hero h1 .accent{ color:var(--orange); }
+  .hero .sub{ margin-top:24px; max-width:560px; font-weight:300; font-size:clamp(15px,1.3vw,20px); line-height:1.65; color:rgba(255,255,255,.85); }
+  .hero .toprow{ position:absolute; top:0; left:0; right:0; display:flex; justify-content:space-between; padding:22px var(--pad); }
+  .hero .cut{ position:absolute; right:0; bottom:0; width:clamp(60px,8vw,130px); aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .scrollcue{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); width:2px; height:52px; overflow:hidden; }
+  .scrollcue:after{ content:''; position:absolute; top:-52px; left:0; width:2px; height:52px; background:#fff; animation:cue 1.8s cubic-bezier(.65,0,.35,1) infinite; }
+  @keyframes cue{ 60%,100%{ transform:translateY(104px);} }
+  .hero-title-line{ display:block; overflow:hidden; }
+  .hero-title-line span{ display:inline-block; transform:translateY(110%); animation:riseup 1.1s cubic-bezier(.16,1,.3,1) forwards; }
+  .hero-title-line:nth-child(2) span{ animation-delay:.15s }
+  .hero-title-line:nth-child(3) span{ animation-delay:.3s }
+  @keyframes riseup{ to{ transform:none; } }
+
+  /* marquee */
+  .marquee{ background:var(--ink); color:#fff; overflow:hidden; padding:18px 0; white-space:nowrap; }
+  .marquee .track{ display:inline-block; animation:scrollx 28s linear infinite; }
+  .marquee span{
+    font-family:'Barlow',sans-serif; font-weight:600; font-size:clamp(18px,2vw,30px);
+    letter-spacing:.06em; margin-right:56px;
+  }
+  .marquee .o{ color:var(--orange); }
+  @keyframes scrollx{ to{ transform:translateX(-50%);} }
+
+  /* vision */
+  .cols3{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,3vw,56px); margin-top:clamp(36px,5vw,80px); }
+  @media (max-width:860px){ .cols3{ grid-template-columns:1fr; } }
+  .cols3 .eyebrow{ color:var(--ink); display:block; margin-bottom:14px; }
+
+  /* brandmark */
+  .dark{ background:var(--ink); color:#fff; }
+  .dark .body{ color:rgba(255,255,255,.72); }
+  .markgrid{ display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(20px,2.6vw,40px); margin-top:clamp(36px,5vw,72px); }
+  @media (max-width:860px){ .markgrid{ grid-template-columns:1fr; } }
+  .card{ border-radius:14px; overflow:hidden; position:relative; transition:transform .5s cubic-bezier(.16,1,.3,1); }
+  .card:hover{ transform:translateY(-6px); }
+  .card .tag{ position:absolute; top:18px; left:22px; font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase; opacity:.6; }
+  .markgrid .wordcard{ background:var(--cloud); display:flex; align-items:center; justify-content:center; min-height:clamp(240px,30vw,420px); }
+  .markgrid .wordcard img{ width:min(56%,420px); }
+  .markgrid .fcard{ background:var(--slate); display:flex; align-items:center; justify-content:center; min-height:clamp(240px,30vw,420px); }
+  .markgrid .fcard img{ width:min(38%,180px); filter:brightness(0) invert(1); }
+  .markrow{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
+  @media (max-width:860px){ .markrow{ grid-template-columns:1fr; } }
+  .markrow .card{ min-height:180px; display:flex; align-items:center; justify-content:center; }
+  .markrow .c1{ background:#fff; border:1px solid var(--slate-20); }
+  .markrow .c1 img{ width:44%; }
+  .markrow .c2{ background:var(--orange); }
+  .markrow .c2 img{ width:26%; filter:brightness(0) invert(1); }
+  .markrow .c3{ background:var(--cloud); }
+  .markrow .c3 img{ width:26%; }
+
+  /* colors */
+  .swatches{ display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-top:clamp(36px,5vw,72px); }
+  @media (max-width:1100px){ .swatches{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:620px){ .swatches{ grid-template-columns:repeat(2,1fr); } }
+  .sw{
+    border-radius:14px; aspect-ratio:3/4; padding:20px; cursor:pointer; position:relative;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    transition:transform .45s cubic-bezier(.16,1,.3,1);
+  }
+  .sw:hover{ transform:translateY(-8px) scale(1.02); }
+  .sw .nm{ font-family:'Barlow',sans-serif; font-weight:600; font-size:clamp(15px,1.2vw,19px); }
+  .sw .hx{ font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.14em; opacity:.75; margin-top:4px; text-transform:uppercase; }
+  .sw .copied{
+    position:absolute; top:14px; right:14px; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    font-family:'Barlow Semi Condensed',sans-serif; opacity:0; transition:opacity .3s;
+  }
+  .sw.copied-on .copied{ opacity:.9; }
+
+  /* typography */
+  .typegrid{ display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(32px,4vw,80px); margin-top:clamp(36px,5vw,72px); align-items:start; }
+  @media (max-width:960px){ .typegrid{ grid-template-columns:1fr; } }
+  .spec{ border-top:1px solid var(--slate-20); padding:clamp(16px,1.6vw,24px) 0; }
+  .spec:first-child{ border-top:3px solid var(--ink); }
+  .spec .lbl{ font-family:'Barlow Semi Condensed',sans-serif; font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--orange); margin-bottom:8px; }
+  .bigtype{ font-size:clamp(56px,9vw,150px); font-weight:600; line-height:1.02; letter-spacing:-.02em; }
+  .bigtype .lt{ color:var(--slate); }
+
+  /* photography */
+  .photogrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:clamp(36px,5vw,72px); }
+  @media (max-width:860px){ .photogrid{ grid-template-columns:1fr; } }
+  .ph{ border-radius:14px; overflow:hidden; position:relative; aspect-ratio:4/5; }
+  .ph.wide{ grid-column:span 2; aspect-ratio:auto; }
+  @media (max-width:860px){ .ph.wide{ grid-column:span 1; } .ph{ aspect-ratio:4/3; } }
+  .ph img{ width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.16,1,.3,1); }
+  .ph:hover img{ transform:scale(1.06); }
+  .ph .cap{
+    position:absolute; left:18px; bottom:16px; color:#fff; z-index:2;
+    font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase;
+  }
+  .ph:after{ content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(21,26,34,.55), transparent 45%); }
+
+  /* voice quote */
+  .quote{ background:var(--slate); color:#fff; text-align:center; }
+  .quote h2{ font-size:clamp(30px,4.6vw,72px); font-weight:600; line-height:1.15; max-width:1100px; margin:0 auto; letter-spacing:-.01em; }
+  .quote .eyebrow{ color:rgba(255,255,255,.7); display:block; margin-bottom:26px; }
+  .quote .saydont{ display:grid; grid-template-columns:1fr 1fr; gap:16px; max-width:900px; margin:clamp(36px,5vw,64px) auto 0; text-align:left; }
+  @media (max-width:720px){ .quote .saydont{ grid-template-columns:1fr; } }
+  .quote .sd{ background:rgba(255,255,255,.08); border-radius:14px; padding:26px 30px; backdrop-filter:blur(4px); }
+  .quote .sd .lbl{ font-family:'Barlow Semi Condensed',sans-serif; font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:var(--orange); margin-bottom:10px; }
+  .quote .sd p{ font-weight:300; font-size:clamp(15px,1.2vw,19px); line-height:1.6; }
+
+  /* templates */
+  .tpl-scroll{ display:grid; grid-template-columns:repeat(6, minmax(230px, 1fr)); gap:18px; margin-top:clamp(36px,5vw,72px); overflow-x:auto; padding-bottom:18px; scroll-snap-type:x mandatory; }
+  .tpl{ scroll-snap-align:start; }
+  .tpl .frame{ border-radius:12px; overflow:hidden; box-shadow:0 18px 44px rgba(31,38,48,.14); position:relative; transition:transform .5s cubic-bezier(.16,1,.3,1); }
+  .tpl:hover .frame{ transform:translateY(-8px); }
+  .tpl .lbl{ margin-top:14px; font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.2em; text-transform:uppercase; color:var(--slate); }
+  .tpl .frame *{ pointer-events:none; }
+  /* mini design language inside templates */
+  .t-eyebrow{ font-family:'Barlow Semi Condensed',sans-serif; font-weight:500; letter-spacing:.2em; text-transform:uppercase; }
+  .t-head{ font-family:'Barlow',sans-serif; font-weight:600; line-height:1.1; letter-spacing:-.01em; }
+  .t-cut{ position:absolute; right:0; bottom:0; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+
+  /* footer */
+  footer{ background:var(--ink); color:#fff; padding:clamp(56px,8vw,110px) var(--pad) 40px; }
+  footer .top{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px; }
+  footer .big{ font-size:clamp(34px,5vw,84px); font-weight:600; line-height:1.05; letter-spacing:-.015em; }
+  footer .big .o{ color:var(--orange); }
+  footer a.btn{
+    display:inline-block; background:var(--orange); color:#fff; text-decoration:none;
+    font-family:'Barlow Semi Condensed',sans-serif; letter-spacing:.18em; text-transform:uppercase; font-size:14px;
+    padding:16px 28px; border-radius:8px; transition:transform .3s, background .3s;
+  }
+  footer a.btn:hover{ transform:translateY(-3px); background:#ff6d1f; }
+  footer .base{
+    margin-top:clamp(48px,7vw,90px); padding-top:28px; border-top:1px solid rgba(255,255,255,.16);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
+    font-family:'Barlow Semi Condensed',sans-serif; font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5);
+  }
+  footer .base a{ color:rgba(255,255,255,.5); text-decoration:none; }
+  footer .base a:hover{ color:#fff; }
 </style>
 </head>
 <body>
 
-<!-- ============ 01 COVER ============ -->
-<section class="page" data-document-role="page" data-label="Cover" style="background:var(--slate);">
-  <div style="position:absolute; top:64px; left:100px;" class="eyebrow on-dark">Brand Guidelines — V1</div>
-  <div style="position:absolute; top:64px; right:100px;" class="eyebrow on-dark">2026</div>
-  <img src="logo-white.png" style="position:absolute; width:640px; left:640px; top:400px;">
-  <div style="position:absolute; bottom:64px; left:100px;" class="eyebrow on-dark">First in every sense.</div>
-  <div style="position:absolute; bottom:64px; right:100px;" class="eyebrow on-dark">Leasing — Cushman &amp; Wakefield</div>
-  <div style="position:absolute; right:0; bottom:0; width:120px; height:120px; background:var(--orange); clip-path:polygon(100% 0, 100% 100%, 0 100%);"></div>
+<div id="progress"></div>
+<nav id="nav">
+  <a class="brand" href="#top" style="text-decoration:none;">
+    <img class="fmark" src="logo-f-badge.svg" alt="FIRST mark">
+    <img class="word" src="logo-ink.png" alt="FIRST Rotterdam">
+  </a>
+  <div class="links">
+    <a href="#vision">Vision</a><a href="#brandmark">Brandmark</a><a href="#color">Color</a>
+    <a href="#type">Type</a><a href="#photo">Photography</a><a href="#templates">Templates</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="bg" id="heroBg"></div>
+  <div class="shade"></div>
+  <div class="inner">
+    <h1>
+      <span class="hero-title-line"><span>The city</span></span>
+      <span class="hero-title-line"><span>starts here<span class="accent">.</span></span></span>
+    </h1>
+    <p class="sub">FIRST Rotterdam stands at the front door of the city, directly at Rotterdam Centraal. A landmark address for businesses that lead — from the first floor to the top.</p>
+  </div>
+  <div class="scrollcue"></div>
+  <div class="cut"></div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>First in every sense <span class="o">↗</span></span><span>28.000 m² prime offices <span class="o">↗</span></span><span>Directly at Rotterdam Centraal <span class="o">↗</span></span><span>Leasing — Cushman &amp; Wakefield <span class="o">↗</span></span><span>First in every sense <span class="o">↗</span></span><span>28.000 m² prime offices <span class="o">↗</span></span><span>Directly at Rotterdam Centraal <span class="o">↗</span></span><span>Leasing — Cushman &amp; Wakefield <span class="o">↗</span></span>
+  </div>
+</div>
+
+<section id="vision">
+  <span class="eyebrow reveal">Introduction — 1.1</span>
+  <h2 class="h-xl reveal d1" style="margin-top:18px; max-width:1200px;">Not the loudest building — <span style="color:var(--slate);">the best positioned one.</span></h2>
+  <div class="cols3">
+    <div class="reveal d1"><span class="eyebrow">Brand vision</span><p class="body">The brand speaks with the calm confidence of prime real estate: precise, architectural and welcoming. Every expression reinforces one promise — being first.</p></div>
+    <div class="reveal d2"><span class="eyebrow">Positioning</span><p class="body">First location, first impression, first choice. FIRST doesn't shout about being first; it simply is — and it shows, in every layout and every word.</p></div>
+    <div class="reveal d3"><span class="eyebrow">Audience</span><p class="body">Decision makers of (inter)national companies, advised by Cushman &amp; Wakefield. Professional, design-aware and time-poor: clarity wins.</p></div>
+  </div>
 </section>
 
-<!-- ============ 02 BRAND VISION ============ -->
-<section class="page" data-document-role="page" data-label="Brand vision">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Introduction — 1.1</div>
-  <h1 class="display" style="position:absolute; top:190px; left:100px; width:1740px; font-size:96px; font-weight:600; line-height:1.15; letter-spacing:-1px;">
-    The city starts here. A landmark<br>address for businesses that lead —<br><span style="color:var(--slate);">from the first floor to the top.</span>
-  </h1>
-  <div style="position:absolute; top:660px; left:100px; width:520px;">
-    <div class="eyebrow" style="margin-bottom:24px; color:var(--ink);">Brand vision</div>
-    <p class="body">FIRST Rotterdam stands at the front door of the city, directly at Rotterdam Centraal. The brand speaks with the calm confidence of prime real estate: precise, architectural and welcoming.</p>
+<section class="dark" id="brandmark">
+  <span class="eyebrow reveal" style="color:rgba(255,255,255,.6);">Brandmark — 2.1</span>
+  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:900px;">One wordmark. One monogram.<br>Both carry the cut.</h2>
+  <p class="body reveal d2" style="max-width:640px; margin-top:20px;">The angled terminal of the T points forward and upward. The F&nbsp;monogram distils that gesture into a single mark — built for app icons, favicons, signage and small applications where the full wordmark can't breathe.</p>
+  <div class="markgrid">
+    <div class="card wordcard reveal"><span class="tag" style="color:var(--slate);">Primary — wordmark</span><img src="logo-fc.png" alt="FIRST Rotterdam wordmark"></div>
+    <div class="card fcard reveal d1"><span class="tag" style="color:rgba(255,255,255,.75);">Monogram — the F</span><img src="logo-f.svg" alt="F monogram"></div>
   </div>
-  <div style="position:absolute; top:660px; left:720px; width:520px;">
-    <div class="eyebrow" style="margin-bottom:24px; color:var(--ink);">Positioning</div>
-    <p class="body">Not the loudest building — the best positioned one. Every expression reinforces one promise: being first. First location, first impression, first choice.</p>
+  <div class="markrow">
+    <div class="card c1 reveal"><span class="tag" style="color:var(--slate);">On light</span><img src="logo-fc.png" alt=""></div>
+    <div class="card c2 reveal d1"><span class="tag" style="color:rgba(255,255,255,.8);">Accent — sparingly</span><img src="logo-f.svg" alt=""></div>
+    <div class="card c3 reveal d2"><span class="tag" style="color:var(--slate);">Monogram on light</span><img src="logo-f.svg" alt=""></div>
   </div>
-  <div style="position:absolute; top:660px; left:1340px; width:480px;">
-    <div class="eyebrow" style="margin-bottom:24px; color:var(--ink);">Audience</div>
-    <p class="body">Decision makers of (inter)national companies, advised by Cushman &amp; Wakefield. Professional, design-aware and time-poor: clarity wins.</p>
-  </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
 </section>
 
-<!-- ============ 03 CONTENTS ============ -->
-<section class="page" data-document-role="page" data-label="Contents" style="background:var(--cloud);">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Brand Guidelines</div>
-  <h1 class="display" style="position:absolute; top:160px; left:100px; font-size:110px; font-weight:600;">Contents</h1>
-  <div style="position:absolute; top:380px; left:100px; right:100px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px;">
-    <div style="background:#fff; padding:44px 48px; height:240px;"><div class="display" style="font-size:64px; font-weight:600; color:var(--slate);">01</div><div class="display" style="font-size:36px; font-weight:600; margin-top:12px;">Logo</div><p class="body" style="font-size:21px; margin-top:8px;">Primary logo, clearspace, minimum size, versions and misuse.</p></div>
-    <div style="background:#fff; padding:44px 48px; height:240px;"><div class="display" style="font-size:64px; font-weight:600; color:var(--slate);">02</div><div class="display" style="font-size:36px; font-weight:600; margin-top:12px;">Color</div><p class="body" style="font-size:21px; margin-top:8px;">Core palette, values for print and screen, pairing rules.</p></div>
-    <div style="background:#fff; padding:44px 48px; height:240px;"><div class="display" style="font-size:64px; font-weight:600; color:var(--slate);">03</div><div class="display" style="font-size:36px; font-weight:600; margin-top:12px;">Typography</div><p class="body" style="font-size:21px; margin-top:8px;">Typefaces, hierarchy and typesetting rules.</p></div>
-    <div style="background:#fff; padding:44px 48px; height:240px;"><div class="display" style="font-size:64px; font-weight:600; color:var(--slate);">04</div><div class="display" style="font-size:36px; font-weight:600; margin-top:12px;">Voice &amp; imagery</div><p class="body" style="font-size:21px; margin-top:8px;">Tone of voice profiles and photography direction.</p></div>
-    <div style="background:#fff; padding:44px 48px; height:240px;"><div class="display" style="font-size:64px; font-weight:600; color:var(--slate);">05</div><div class="display" style="font-size:36px; font-weight:600; margin-top:12px;">Applications</div><p class="body" style="font-size:21px; margin-top:8px;">Factsheets, social media and environmental applications.</p></div>
-    <div style="background:var(--orange); padding:44px 48px; height:240px; color:#fff;"><div class="display" style="font-size:64px; font-weight:600;">↗</div><div class="display" style="font-size:36px; font-weight:600; margin-top:12px;">One promise</div><p class="body" style="font-size:21px; margin-top:8px; color:rgba(255,255,255,.9);">Every page answers one question: does this feel first?</p></div>
+<section id="color" style="background:var(--cloud);">
+  <span class="eyebrow reveal">Color — 3.1</span>
+  <h2 class="h-lg reveal d1" style="margin-top:18px;">Calm slate carries the brand.<br><span style="color:var(--slate);">Signal orange points the way.</span></h2>
+  <p class="body reveal d2" style="max-width:620px; margin-top:20px;">Click a swatch to copy its hex value. White and neutrals dominate; slate structures; orange only signals — never large surfaces, never long copy.</p>
+  <div class="swatches">
+    <div class="sw reveal" data-hex="#7B8899" style="background:#7B8899; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">FIRST Slate</span><span class="hx">#7B8899</span></div>
+    <div class="sw reveal d1" data-hex="#1F2630" style="background:#1F2630; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">Skyline Ink</span><span class="hx">#1F2630</span></div>
+    <div class="sw reveal d2" data-hex="#FF5A00" style="background:#FF5A00; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">Signal Orange</span><span class="hx">#FF5A00</span></div>
+    <div class="sw reveal d1" data-hex="#E9EDF1" style="background:#E9EDF1;"><span class="copied">Copied ✓</span><span class="nm">Mist</span><span class="hx">#E9EDF1</span></div>
+    <div class="sw reveal d2" data-hex="#F7F8FA" style="background:#F7F8FA; border:1px solid var(--slate-20);"><span class="copied">Copied ✓</span><span class="nm">Cloud</span><span class="hx">#F7F8FA</span></div>
+    <div class="sw reveal d3" data-hex="#FFFFFF" style="background:#fff; border:1px solid var(--slate-20);"><span class="copied">Copied ✓</span><span class="nm">White</span><span class="hx">#FFFFFF</span></div>
   </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
 </section>
 
-<!-- ============ 04 DIVIDER LOGO ============ -->
-<section class="page" data-document-role="page" data-label="Section — Logo" style="background:var(--slate);">
-  <h1 class="display" style="position:absolute; top:90px; left:100px; font-size:130px; font-weight:600; color:#fff;">Logo</h1>
-  <div style="position:absolute; top:120px; right:100px;" class="eyebrow on-dark">V1 2026</div>
-  <div class="display" style="position:absolute; bottom:80px; right:100px; font-size:320px; font-weight:600; color:#fff; line-height:1;">01</div>
-  <div style="position:absolute; bottom:100px; left:100px; width:460px;" class="eyebrow on-dark">The wordmark is the brand. Handle it with architectural precision.</div>
-</section>
-
-<!-- ============ 05 PRIMARY LOGO ============ -->
-<section class="page" data-document-role="page" data-label="Primary logo">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Logo — 1.1</div>
-  <h2 class="display" style="position:absolute; top:160px; left:100px; font-size:64px; font-weight:600;">Primary logo</h2>
-  <div style="position:absolute; top:300px; left:100px; width:560px;">
-    <p class="body">The FIRST Rotterdam wordmark is a purpose-built typographic mark. The heavy capitals carry the confidence of the tower; the angled cut of the T points forward and upward.</p>
-    <p class="body" style="margin-top:28px;">Always reproduce the logo from the master artwork. Never redraw, reset or modify it. The full-color version in FIRST Slate is the default on light backgrounds.</p>
-  </div>
-  <div style="position:absolute; top:280px; left:760px; width:1060px; height:560px; background:var(--cloud); display:flex; align-items:center; justify-content:center;">
-    <img src="logo-fc.png" style="width:560px;">
-  </div>
-  <div style="position:absolute; top:880px; left:760px; width:515px; height:110px; background:var(--slate); display:flex; align-items:center; justify-content:center;">
-    <img src="logo-white.png" style="height:56px;">
-  </div>
-  <div style="position:absolute; top:880px; left:1305px; width:515px; height:110px; background:var(--ink); display:flex; align-items:center; justify-content:center;">
-    <img src="logo-white.png" style="height:56px;">
-  </div>
-  <div class="footer" style="right:auto;"><img class="mark" src="logo-ink.png"><span style="margin-left:40px;">Brand — FIRST Rotterdam</span></div>
-</section>
-
-<!-- ============ 06 CLEARSPACE ============ -->
-<section class="page" data-document-role="page" data-label="Clearspace &amp; minimum size">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Logo — 1.2</div>
-  <h2 class="display" style="position:absolute; top:160px; left:100px; font-size:64px; font-weight:600;">Clearspace &amp; minimum size</h2>
-  <div style="position:absolute; top:300px; left:100px; width:560px;">
-    <p class="body">Give the logo room to lead. The exclusion zone on all sides equals the cap height of the letter F — marked as <b style="font-weight:600;">X</b>. No text, images or graphic elements may enter this zone.</p>
-    <p class="body" style="margin-top:28px;">Below the minimum size, the ROTTERDAM baseline becomes illegible. Use the FIRST-only master artwork for very small applications such as favicons.</p>
-  </div>
-  <div style="position:absolute; top:300px; left:800px; width:700px; height:420px; border:2px dashed var(--slate-60); display:flex; align-items:center; justify-content:center;">
-    <div style="position:relative; padding:70px;">
-      <img src="logo-fc.png" style="width:420px; display:block;">
-      <div class="swatch-label" style="position:absolute; top:18px; left:50%; transform:translateX(-50%); color:var(--orange);">X</div>
-      <div class="swatch-label" style="position:absolute; bottom:18px; left:50%; transform:translateX(-50%); color:var(--orange);">X</div>
-      <div class="swatch-label" style="position:absolute; left:22px; top:50%; transform:translateY(-50%); color:var(--orange);">X</div>
-      <div class="swatch-label" style="position:absolute; right:22px; top:50%; transform:translateY(-50%); color:var(--orange);">X</div>
-    </div>
-  </div>
-  <div style="position:absolute; top:780px; left:800px; display:flex; gap:80px; align-items:flex-end;">
-    <div><img src="logo-fc.png" style="width:160px; display:block;"><div class="swatch-label" style="margin-top:14px; color:var(--slate);">Print min. — 25 mm</div></div>
-    <div><img src="logo-fc.png" style="width:110px; display:block;"><div class="swatch-label" style="margin-top:14px; color:var(--slate);">Screen min. — 110 px</div></div>
-  </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
-</section>
-
-<!-- ============ 07 LOGO MISUSE ============ -->
-<section class="page" data-document-role="page" data-label="Logo misuse">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Logo — 1.3</div>
-  <h2 class="display" style="position:absolute; top:160px; left:100px; font-size:64px; font-weight:600;">Logo don'ts</h2>
-  <p class="body" style="position:absolute; top:280px; left:100px; width:900px;">Consistency builds recognition. The following treatments are never permitted.</p>
-  <div style="position:absolute; top:390px; left:100px; right:100px; display:grid; grid-template-columns:repeat(3,1fr); gap:44px 32px;">
+<section id="type">
+  <span class="eyebrow reveal">Typography — 4.1</span>
+  <div class="typegrid">
     <div>
-      <div style="background:var(--cloud); height:210px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="logo-fc.png" style="width:250px; transform:rotate(-8deg);"><div style="position:absolute; inset:0; background:linear-gradient(to top right, transparent calc(50% - 2px), var(--orange) calc(50% - 2px), var(--orange) calc(50% + 2px), transparent calc(50% + 2px));"></div></div>
-      <div class="swatch-label" style="margin-top:16px; color:var(--slate);">Don't rotate</div>
-    </div><div>
-      <div style="background:var(--cloud); height:210px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="logo-fc.png" style="width:250px; transform:scaleX(1.5);"><div style="position:absolute; inset:0; background:linear-gradient(to top right, transparent calc(50% - 2px), var(--orange) calc(50% - 2px), var(--orange) calc(50% + 2px), transparent calc(50% + 2px));"></div></div>
-      <div class="swatch-label" style="margin-top:16px; color:var(--slate);">Don't stretch or condense</div>
-    </div><div>
-      <div style="background:var(--cloud); height:210px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="logo-fc.png" style="width:250px; filter:hue-rotate(140deg) saturate(3);"><div style="position:absolute; inset:0; background:linear-gradient(to top right, transparent calc(50% - 2px), var(--orange) calc(50% - 2px), var(--orange) calc(50% + 2px), transparent calc(50% + 2px));"></div></div>
-      <div class="swatch-label" style="margin-top:16px; color:var(--slate);">Don't recolor</div>
-    </div><div>
-      <div style="background:var(--slate-20); height:210px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="logo-fc.png" style="width:250px;"><div style="position:absolute; inset:0; background:linear-gradient(to top right, transparent calc(50% - 2px), var(--orange) calc(50% - 2px), var(--orange) calc(50% + 2px), transparent calc(50% + 2px));"></div></div>
-      <div class="swatch-label" style="margin-top:16px; color:var(--slate);">Don't use on low-contrast tints</div>
-    </div><div>
-      <div style="background:var(--cloud); height:210px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;"><img src="logo-fc.png" style="width:250px; filter:drop-shadow(8px 8px 6px rgba(0,0,0,.45));"><div style="position:absolute; inset:0; background:linear-gradient(to top right, transparent calc(50% - 2px), var(--orange) calc(50% - 2px), var(--orange) calc(50% + 2px), transparent calc(50% + 2px));"></div></div>
-      <div class="swatch-label" style="margin-top:16px; color:var(--slate);">Don't add effects or shadows</div>
-    </div><div>
-      <div style="background:var(--cloud); height:210px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;"><span class="display" style="font-size:52px; font-weight:700; color:var(--slate); letter-spacing:2px;">FIRST<span style="font-weight:300;">rotterdam</span></span><div style="position:absolute; inset:0; background:linear-gradient(to top right, transparent calc(50% - 2px), var(--orange) calc(50% - 2px), var(--orange) calc(50% + 2px), transparent calc(50% + 2px));"></div></div>
-      <div class="swatch-label" style="margin-top:16px; color:var(--slate);">Don't retype the wordmark</div>
+      <div class="bigtype reveal">Barlow<br><span class="lt">leads every headline.</span></div>
+      <p class="body reveal d1" style="margin-top:30px; max-width:560px;">Inter carries the body copy — quiet, highly legible and engineered for screens as well as print. Together they mirror the brand: a strong first statement, followed by effortless clarity.</p>
+    </div>
+    <div class="reveal d1">
+      <div class="spec"><div class="lbl">Display — Barlow SemiBold</div><div class="display" style="font-size:clamp(24px,2.2vw,38px); font-weight:600;">First impressions, daily.</div></div>
+      <div class="spec"><div class="lbl">Subhead — Barlow Medium</div><div class="display" style="font-size:clamp(19px,1.7vw,28px); font-weight:500;">28.000 m² of prime offices</div></div>
+      <div class="spec"><div class="lbl">Eyebrow — Barlow Semi Condensed</div><div class="eyebrow">Leasing — Available now</div></div>
+      <div class="spec"><div class="lbl">Body — Inter Light</div><p class="body">Directly connected to Rotterdam Centraal, FIRST offers flexible floors from 500 m² with panoramic views over the city.</p></div>
+      <div class="spec"><div class="lbl">Rules</div><p class="body">Headlines in sentence case with tight leading. Eyebrows uppercase, wide tracking. Max two weights per layout.</p></div>
     </div>
   </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
 </section>
 
-<!-- ============ 08 DIVIDER COLOR ============ -->
-<section class="page" data-document-role="page" data-label="Section — Color" style="background:var(--slate);">
-  <h1 class="display" style="position:absolute; top:90px; left:100px; font-size:130px; font-weight:600; color:#fff;">Color</h1>
-  <div style="position:absolute; top:120px; right:100px;" class="eyebrow on-dark">V1 2026</div>
-  <div class="display" style="position:absolute; bottom:80px; right:100px; font-size:320px; font-weight:600; color:#fff; line-height:1;">02</div>
-  <div style="position:absolute; bottom:100px; left:100px; width:460px;" class="eyebrow on-dark">Calm slate carries the brand. Signal orange points the way.</div>
-</section>
-
-<!-- ============ 09 PALETTE ============ -->
-<section class="page" data-document-role="page" data-label="Color palette">
-  <div style="position:absolute; top:0; left:0; width:960px; height:1080px;">
-    <div style="height:270px; background:var(--slate); color:#fff; padding:36px 60px; display:flex; justify-content:space-between;"><span class="swatch-label">FIRST Slate<br><br>HEX 7B8899</span><span class="swatch-label">RGB 123 · 136 · 153</span><span class="swatch-label">CMYK 20 · 11 · 0 · 40</span></div>
-    <div style="height:200px; background:var(--ink); color:#fff; padding:36px 60px; display:flex; justify-content:space-between;"><span class="swatch-label">Skyline Ink<br><br>HEX 1F2630</span><span class="swatch-label">RGB 31 · 38 · 48</span><span class="swatch-label">CMYK 35 · 21 · 0 · 81</span></div>
-    <div style="height:200px; background:var(--orange); color:#fff; padding:36px 60px; display:flex; justify-content:space-between;"><span class="swatch-label">Signal Orange<br><br>HEX FF5A00</span><span class="swatch-label">RGB 255 · 90 · 0</span><span class="swatch-label">CMYK 0 · 65 · 100 · 0</span></div>
-    <div style="height:140px; background:var(--mist); padding:30px 60px; display:flex; justify-content:space-between; color:var(--ink);"><span class="swatch-label">Mist<br><br>HEX E9EDF1</span><span class="swatch-label">RGB 233 · 237 · 241</span><span class="swatch-label">CMYK 3 · 2 · 0 · 5</span></div>
-    <div style="height:140px; background:var(--cloud); padding:30px 60px; display:flex; justify-content:space-between; color:var(--ink);"><span class="swatch-label">Cloud<br><br>HEX F7F8FA</span><span class="swatch-label">RGB 247 · 248 · 250</span><span class="swatch-label">CMYK 1 · 1 · 0 · 2</span></div>
-    <div style="height:130px; background:#fff; border-top:1px solid var(--slate-20); padding:30px 60px; display:flex; justify-content:space-between; color:var(--ink);"><span class="swatch-label">White<br><br>HEX FFFFFF</span><span class="swatch-label">RGB 255 · 255 · 255</span><span class="swatch-label">CMYK 0 · 0 · 0 · 0</span></div>
-  </div>
-  <div style="position:absolute; top:110px; left:1040px; width:780px;">
-    <div class="eyebrow">Color — 2.1</div>
-    <h2 class="display" style="font-size:64px; font-weight:600; margin-top:24px;">Core palette</h2>
-    <p class="body" style="margin-top:36px;">FIRST Slate is drawn directly from the logo and is the backbone of the identity. Skyline Ink replaces pure black in all typography. Signal Orange is reserved for accents: highlights, arrows, calls to action — never for large surfaces.</p>
-    <p class="body" style="margin-top:28px;">Mist and Cloud keep layouts airy and architectural. When in doubt: more white, less color.</p>
-    <p class="body" style="margin-top:28px; font-size:20px; color:var(--slate);">CMYK values are indicative — always proof against the printer's color profile before production.</p>
-  </div>
-  <div class="footer" style="left:1040px;"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
-</section>
-
-<!-- ============ 10 COLOR USE ============ -->
-<section class="page" data-document-role="page" data-label="Color use">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Color — 2.2</div>
-  <h2 class="display" style="position:absolute; top:160px; left:100px; font-size:64px; font-weight:600;">Balance &amp; pairing</h2>
-  <p class="body" style="position:absolute; top:280px; left:100px; width:800px;">The palette works on a strict ratio. White and neutrals dominate; slate structures; orange only signals.</p>
-  <div style="position:absolute; top:430px; left:100px; width:1720px; height:120px; display:flex;">
-    <div style="width:60%; background:#fff; border:1px solid var(--slate-20); display:flex; align-items:center; justify-content:center;"><span class="swatch-label" style="color:var(--slate);">60% — White &amp; Cloud</span></div>
-    <div style="width:25%; background:var(--mist); display:flex; align-items:center; justify-content:center;"><span class="swatch-label" style="color:var(--ink);">25% — Mist</span></div>
-    <div style="width:10%; background:var(--slate); display:flex; align-items:center; justify-content:center;"><span class="swatch-label" style="color:#fff;">10%</span></div>
-    <div style="width:5%; background:var(--orange); display:flex; align-items:center; justify-content:center;"><span class="swatch-label" style="color:#fff;">5%</span></div>
-  </div>
-  <div style="position:absolute; top:650px; left:100px;" class="eyebrow" style="color:var(--ink);">Pairing don'ts</div>
-  <div style="position:absolute; top:710px; left:100px; display:flex; gap:60px;">
-    <div style="text-align:center;"><div style="width:150px; height:150px; border-radius:50%; background:var(--orange); position:relative; display:flex; align-items:center; justify-content:center;"><span class="display" style="color:var(--slate); font-weight:700; font-size:40px;">Aa</span><div style="position:absolute; width:170px; height:4px; background:var(--ink); transform:rotate(-45deg);"></div></div><div class="swatch-label" style="margin-top:16px; color:var(--slate);">Slate on orange</div></div>
-    <div style="text-align:center;"><div style="width:150px; height:150px; border-radius:50%; background:var(--slate); position:relative; display:flex; align-items:center; justify-content:center;"><span class="display" style="color:var(--orange); font-weight:700; font-size:40px;">Aa</span><div style="position:absolute; width:170px; height:4px; background:var(--ink); transform:rotate(-45deg);"></div></div><div class="swatch-label" style="margin-top:16px; color:var(--slate);">Orange on slate</div></div>
-    <div style="text-align:center;"><div style="width:150px; height:150px; border-radius:50%; background:var(--mist); position:relative; display:flex; align-items:center; justify-content:center;"><span class="display" style="color:#fff; font-weight:700; font-size:40px;">Aa</span><div style="position:absolute; width:170px; height:4px; background:var(--ink); transform:rotate(-45deg);"></div></div><div class="swatch-label" style="margin-top:16px; color:var(--slate);">White on mist</div></div>
-    <div style="text-align:center;"><div style="width:150px; height:150px; border-radius:50%; background:var(--ink); position:relative; display:flex; align-items:center; justify-content:center;"><span class="display" style="color:var(--slate); font-weight:700; font-size:40px;">Aa</span><div style="position:absolute; width:170px; height:4px; background:var(--ink); transform:rotate(-45deg);"></div></div><div class="swatch-label" style="margin-top:16px; color:var(--slate);">Slate on ink</div></div>
-  </div>
-  <div style="position:absolute; top:660px; right:100px; width:520px; background:var(--cloud); padding:48px;">
-    <div class="eyebrow" style="color:var(--ink); margin-bottom:20px;">Accessibility</div>
-    <p class="body" style="font-size:21px;">Body text is always Skyline Ink on white, Cloud or Mist. White text is permitted on Slate, Ink and Orange at 24 px and above. Never set long copy in Signal Orange.</p>
-  </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
-</section>
-
-<!-- ============ 11 DIVIDER TYPO ============ -->
-<section class="page" data-document-role="page" data-label="Section — Typography" style="background:var(--slate);">
-  <h1 class="display" style="position:absolute; top:90px; left:100px; font-size:130px; font-weight:600; color:#fff;">Typography</h1>
-  <div style="position:absolute; top:120px; right:100px;" class="eyebrow on-dark">V1 2026</div>
-  <div class="display" style="position:absolute; bottom:80px; right:100px; font-size:320px; font-weight:600; color:#fff; line-height:1;">03</div>
-  <div style="position:absolute; bottom:100px; left:100px; width:460px;" class="eyebrow on-dark">Two typefaces. One clear hierarchy.</div>
-</section>
-
-<!-- ============ 12 TYPE SYSTEM ============ -->
-<section class="page" data-document-role="page" data-label="Type system">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Typography — 3.1</div>
-  <h2 class="display" style="position:absolute; top:160px; left:100px; font-size:64px; font-weight:600;">Type system</h2>
-  <div style="position:absolute; top:300px; left:100px; width:1050px;">
-    <div class="display" style="font-size:150px; font-weight:600; line-height:1.05; letter-spacing:-2px;">Barlow<br><span style="color:var(--slate);">leads every headline.</span></div>
-    <div style="font-family:'Inter'; font-size:30px; font-weight:300; margin-top:48px; line-height:1.6; width:900px;">Inter carries the body copy — quiet, highly legible and engineered for screens as well as print. Together they mirror the brand: a strong first statement, followed by effortless clarity.</div>
-  </div>
-  <div style="position:absolute; top:270px; right:100px; width:600px;">
-    <div style="border-top:3px solid var(--ink); padding:20px 0;"><div class="swatch-label" style="color:var(--orange);">Display / H1 — Barlow SemiBold</div><div class="display" style="font-size:44px; font-weight:600; margin-top:10px;">First impressions, daily.</div></div>
-    <div style="border-top:1px solid var(--slate-20); padding:20px 0;"><div class="swatch-label" style="color:var(--orange);">Subhead / H2 — Barlow Medium</div><div class="display" style="font-size:32px; font-weight:500; margin-top:10px;">28.000 m² of prime offices</div></div>
-    <div style="border-top:1px solid var(--slate-20); padding:20px 0;"><div class="swatch-label" style="color:var(--orange);">Eyebrow — Barlow Semi Cond. Medium</div><div class="eyebrow" style="margin-top:10px;">Leasing — Available now</div></div>
-    <div style="border-top:1px solid var(--slate-20); padding:20px 0;"><div class="swatch-label" style="color:var(--orange);">Body — Inter Light / Regular</div><p class="body" style="margin-top:10px; font-size:22px;">Directly connected to Rotterdam Centraal, FIRST offers flexible floors from 500 m² with panoramic views over the city.</p></div>
-    <div style="border-top:1px solid var(--slate-20); padding:20px 0;"><div class="swatch-label" style="color:var(--orange);">Rules</div><p class="body" style="margin-top:10px; font-size:22px;">Headlines in sentence case with tight leading. Eyebrows uppercase, wide tracking. Max two weights per layout.</p></div>
-  </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
-</section>
-
-<!-- ============ 13 DIVIDER VOICE ============ -->
-<section class="page" data-document-role="page" data-label="Section — Voice &amp; imagery" style="background:var(--slate);">
-  <h1 class="display" style="position:absolute; top:90px; left:100px; font-size:130px; font-weight:600; color:#fff;">Voice &amp; imagery</h1>
-  <div style="position:absolute; top:120px; right:100px;" class="eyebrow on-dark">V1 2026</div>
-  <div class="display" style="position:absolute; bottom:80px; right:100px; font-size:320px; font-weight:600; color:#fff; line-height:1;">04</div>
-  <div style="position:absolute; bottom:100px; left:100px; width:460px;" class="eyebrow on-dark">Speak like the address: assured, precise, welcoming.</div>
-</section>
-
-<!-- ============ 14 TONE OF VOICE ============ -->
-<section class="page" data-document-role="page" data-label="Tone of voice">
-  <h1 class="display" style="position:absolute; top:110px; left:100px; width:1500px; font-size:84px; font-weight:600; line-height:1.15;">We don't shout about being first.<br>We simply are — and it shows.</h1>
-  <div style="position:absolute; top:480px; left:100px; width:340px;">
-    <h3 class="display" style="font-size:36px; font-weight:600;">Voice profiles</h3>
-  </div>
-  <div style="position:absolute; top:480px; left:520px; width:600px;">
-    <h3 class="display" style="font-size:34px; font-weight:600;">Architectural authority</h3>
-    <p class="body" style="font-size:22px; margin-top:22px;">Decision makers want facts, floorplans and clarity — not vague promises. This tone is precise and structured: square metres, connections, certifications, terms. It positions FIRST as a professionally managed, premium address and builds immediate trust with tenants and their advisors.</p>
-  </div>
-  <div style="position:absolute; top:480px; left:1220px; width:600px;">
-    <h3 class="display" style="font-size:34px; font-weight:600;">The confident host</h3>
-    <p class="body" style="font-size:22px; margin-top:22px;">Where authority handles the logic, the host handles the feeling. It speaks to the pride of arrival: your name at the best address in Rotterdam, your team one step from Centraal. Warm, direct and generous — like a concierge who already knows your name.</p>
-  </div>
-  <div style="position:absolute; bottom:120px; left:100px; right:100px; display:flex; gap:32px;">
-    <div style="flex:1; background:var(--cloud); padding:32px 40px;"><div class="swatch-label" style="color:var(--orange);">Say</div><p class="body" style="font-size:21px; margin-top:12px;">"Five floors available. One minute from Centraal. Zero compromises."</p></div>
-    <div style="flex:1; background:var(--cloud); padding:32px 40px;"><div class="swatch-label" style="color:var(--orange);">Don't say</div><p class="body" style="font-size:21px; margin-top:12px;">"A unique, one-of-a-kind opportunity in a truly iconic landmark!!"</p></div>
-    <div style="flex:1; background:var(--ink); color:#fff; padding:32px 40px;"><div class="swatch-label" style="color:var(--orange);">Tagline</div><p class="body" style="font-size:21px; margin-top:12px; color:#fff;">First in every sense.</p></div>
+<section class="quote">
+  <span class="eyebrow reveal">Tone of voice — 5.1</span>
+  <h2 class="reveal d1">"We don't shout about being first.<br>We simply are — and it shows."</h2>
+  <div class="saydont">
+    <div class="sd reveal d1"><div class="lbl">Say</div><p>"Five floors available. One minute from Centraal. Zero compromises."</p></div>
+    <div class="sd reveal d2"><div class="lbl">Don't say</div><p>"A unique, one-of-a-kind opportunity in a truly iconic landmark!!"</p></div>
   </div>
 </section>
 
-<!-- ============ 15 PHOTOGRAPHY ============ -->
-<section class="page" data-document-role="page" data-label="Photography">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Imagery — 4.2</div>
-  <h2 class="display" style="position:absolute; top:160px; left:100px; font-size:64px; font-weight:600;">Photography direction</h2>
-  <p class="body" style="position:absolute; top:280px; left:100px; width:1100px;">Three image families, one feel: cool daylight, architectural lines, honest people. Slight cool grade toward slate; never oversaturated, never staged stock-smiles.</p>
-  <div style="position:absolute; top:430px; left:100px; right:100px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px;">
+<section id="photo">
+  <span class="eyebrow reveal">Photography — 6.1</span>
+  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:900px;">Cool daylight. Architectural lines. Honest people.</h2>
+  <div class="photogrid">
+    <div class="ph wide reveal"><img src="img/first-5.jpg" alt="FIRST Rotterdam tower at dusk" loading="lazy"><span class="cap">The tower — dusk</span></div>
+    <div class="ph reveal d1"><img src="img/first-6.jpg" alt="Plaza at Rotterdam Centraal" loading="lazy"><span class="cap">The arrival</span></div>
+    <div class="ph reveal"><img src="img/first-3.jpg" alt="City life around FIRST" loading="lazy"><span class="cap">The city — daily life</span></div>
+    <div class="ph wide reveal d1"><img src="img/first-7.jpg" alt="Rotterdam skyline" loading="lazy"><span class="cap">The skyline</span></div>
+  </div>
+</section>
+
+<section id="templates" style="background:var(--cloud); overflow:hidden;">
+  <span class="eyebrow reveal">Applications — 7.1</span>
+  <h2 class="h-lg reveal d1" style="margin-top:18px;">One system, every format.</h2>
+  <p class="body reveal d2" style="max-width:620px; margin-top:20px;">The same skeleton everywhere: eyebrow top left, mark anchored to a corner, one dominant statement, generous margins — and the orange cut, once per layout.</p>
+
+  <div class="tpl-scroll">
+    <!-- A4 poster -->
+    <div class="tpl reveal">
+      <div class="frame" style="aspect-ratio:210/297; background:#fff; padding:9%;">
+        <div class="t-eyebrow" style="font-size:9px; color:var(--slate);">Now leasing</div>
+        <div class="t-head" style="font-size:clamp(20px,1.8vw,30px); margin-top:10px;">Start<br>at the<br>top.</div>
+        <img src="img/first-5.jpg" style="position:absolute; left:9%; right:9%; bottom:22%; width:82%; height:34%; object-fit:cover;" alt="">
+        <img src="logo-fc.png" style="position:absolute; bottom:8%; left:9%; width:34%;" alt="">
+        <div class="t-cut" style="width:15%; aspect-ratio:1;"></div>
+      </div>
+      <div class="lbl">Poster — A4/A0</div>
+    </div>
+    <!-- Instagram post -->
+    <div class="tpl reveal d1">
+      <div class="frame" style="aspect-ratio:1; background:var(--slate); padding:9%; color:#fff;">
+        <div class="t-eyebrow" style="font-size:9px; color:rgba(255,255,255,.75);">Now leasing</div>
+        <div class="t-head" style="font-size:clamp(18px,1.6vw,26px); margin-top:8px;">See the city before it sees you.</div>
+        <img src="logo-white.png" style="position:absolute; bottom:10%; left:9%; width:30%;" alt="">
+        <div class="t-eyebrow" style="position:absolute; bottom:10.5%; right:9%; font-size:8px; color:rgba(255,255,255,.6);">@firstrotterdam</div>
+      </div>
+      <div class="lbl">Social — feed 1:1</div>
+    </div>
+    <!-- Story 9:16 -->
+    <div class="tpl reveal d2">
+      <div class="frame" style="aspect-ratio:9/16; background:#000;">
+        <img src="img/first-6.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.85;" alt="">
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(21,26,34,.85), transparent 55%);"></div>
+        <div class="t-head" style="position:absolute; bottom:18%; left:9%; right:9%; color:#fff; font-size:clamp(17px,1.5vw,24px);">First in every sense.</div>
+        <img src="logo-white.png" style="position:absolute; bottom:8%; left:9%; width:34%;" alt="">
+        <div class="t-cut" style="width:16%; aspect-ratio:1;"></div>
+      </div>
+      <div class="lbl">Social — story 9:16</div>
+    </div>
+    <!-- Factsheet -->
+    <div class="tpl reveal">
+      <div class="frame" style="aspect-ratio:210/297; background:var(--cloud); padding:9%;">
+        <div class="t-eyebrow" style="font-size:9px; color:var(--slate);">Factsheet — Floor 12</div>
+        <div class="t-head" style="font-size:clamp(19px,1.7vw,28px); margin-top:10px;">1.240 m²<br>ready for<br>your name.</div>
+        <div style="position:absolute; left:9%; right:9%; bottom:24%; display:grid; grid-template-columns:1fr 1fr; gap:6%; font-family:'Barlow Semi Condensed'; font-size:8px; letter-spacing:.12em; text-transform:uppercase; color:var(--slate);">
+          <div style="border-top:1px solid var(--slate-20); padding-top:6px;">Floor area<br><b style="color:var(--ink); font-size:11px;">1.240 m²</b></div>
+          <div style="border-top:1px solid var(--slate-20); padding-top:6px;">Workstations<br><b style="color:var(--ink); font-size:11px;">124</b></div>
+        </div>
+        <img src="logo-fc.png" style="position:absolute; bottom:8%; left:9%; width:34%;" alt="">
+        <div class="t-cut" style="width:13%; aspect-ratio:1;"></div>
+      </div>
+      <div class="lbl">Print — factsheet</div>
+    </div>
+    <!-- LinkedIn banner -->
+    <div class="tpl reveal d1">
+      <div class="frame" style="aspect-ratio:4/1; background:var(--ink); grid-column:span 2; display:flex; align-items:center; gap:4%; padding:0 5%;">
+        <img src="logo-white.png" style="width:14%; flex:none;" alt="">
+        <div class="t-head" style="color:#fff; font-size:clamp(10px,.85vw,15px); flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Offices from 500 m² at Rotterdam Centraal</div>
+        <div class="t-eyebrow" style="background:var(--orange); color:#fff; font-size:8px; padding:6px 10px; border-radius:4px; flex:none; white-space:nowrap;">Plan a tour</div>
+      </div>
+      <div class="lbl">Digital — banner 4:1</div>
+    </div>
+    <!-- Business card -->
+    <div class="tpl reveal d2">
+      <div class="frame" style="aspect-ratio:85/55; background:#fff; padding:8%;">
+        <img src="logo-fc.png" style="width:38%;" alt="">
+        <div style="position:absolute; bottom:10%; left:8%; font-family:'Barlow Semi Condensed'; font-size:8.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); line-height:2;">firstrotterdam.nl<br>Leasing — Cushman &amp; Wakefield</div>
+        <div class="t-cut" style="width:14%; aspect-ratio:1;"></div>
+      </div>
+      <div class="lbl">Print — business card</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="top">
     <div>
-      <div class="ph" style="height:420px;"><div class="cam"></div><span>Image — Architecture</span></div>
-      <h3 class="display" style="font-size:30px; font-weight:600; margin-top:24px;">The tower</h3>
-      <p class="body" style="font-size:21px; margin-top:10px;">Strong verticals, low vantage points looking up, glass and sky. Shot at golden hour or in crisp daylight.</p>
+      <img src="logo-white.png" style="width:clamp(160px,18vw,280px); margin-bottom:34px;" alt="FIRST Rotterdam">
+      <div class="big">First in<br>every sense<span class="o">.</span></div>
     </div>
-    <div>
-      <div class="ph" style="height:420px;"><div class="cam"></div><span>Image — City</span></div>
-      <h3 class="display" style="font-size:30px; font-weight:600; margin-top:24px;">The city</h3>
-      <p class="body" style="font-size:21px; margin-top:10px;">Rotterdam in motion: Centraal, skyline, transit. Long exposures and elevated views emphasise connection.</p>
-    </div>
-    <div>
-      <div class="ph" style="height:420px;"><div class="cam"></div><span>Image — People</span></div>
-      <h3 class="display" style="font-size:30px; font-weight:600; margin-top:24px;">The tenants</h3>
-      <p class="body" style="font-size:21px; margin-top:10px;">Real professionals in real moments — arriving, meeting, focused. Natural light, candid framing, no posing.</p>
-    </div>
+    <a class="btn" href="deck.html">View full guidelines deck →</a>
   </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
-</section>
+  <div class="base">
+    <span>Leasing — Cushman &amp; Wakefield</span>
+    <a href="deck.html">Brand guidelines V1 — 2026</a>
+    <span>firstrotterdam.nl</span>
+  </div>
+</footer>
 
-<!-- ============ 16 DIVIDER APPLICATIONS ============ -->
-<section class="page" data-document-role="page" data-label="Section — Applications" style="background:var(--slate);">
-  <h1 class="display" style="position:absolute; top:90px; left:100px; font-size:130px; font-weight:600; color:#fff;">Applications</h1>
-  <div style="position:absolute; top:120px; right:100px;" class="eyebrow on-dark">V1 2026</div>
-  <div class="display" style="position:absolute; bottom:80px; right:100px; font-size:320px; font-weight:600; color:#fff; line-height:1;">05</div>
-  <div style="position:absolute; bottom:100px; left:100px; width:460px;" class="eyebrow on-dark">From factsheet to facade — one system.</div>
-</section>
+<script>
+  // nav + progress
+  const nav = document.getElementById('nav'), prog = document.getElementById('progress'), heroBg = document.getElementById('heroBg');
+  addEventListener('scroll', () => {
+    const y = scrollY;
+    nav.classList.toggle('scrolled', y > 40);
+    const h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
+    if (y < innerHeight * 1.2) heroBg.style.transform = `translateY(${y * .35}px)`;
+  }, { passive: true });
 
-<!-- ============ 17 APPLICATIONS ============ -->
-<section class="page" data-document-role="page" data-label="Applications" style="background:var(--cloud);">
-  <div style="position:absolute; top:110px; left:100px;" class="eyebrow">Applications — 5.1</div>
-  <h2 class="display" style="position:absolute; top:160px; left:100px; font-size:64px; font-weight:600;">Layout principles</h2>
-  <div style="position:absolute; top:330px; left:100px; width:420px;">
-    <p class="body" style="font-size:22px;">Every application follows the same skeleton: eyebrow top left, logo anchored to a corner, one dominant statement, generous margins.</p>
-    <p class="body" style="font-size:22px; margin-top:24px;">The angled cut — borrowed from the T — may appear once per layout as an orange corner or divider.</p>
-  </div>
-  <!-- Factsheet mock -->
-  <div style="position:absolute; top:300px; left:620px; width:400px; height:566px; background:#fff; box-shadow:0 20px 50px rgba(31,38,48,.15); padding:36px;">
-    <div class="eyebrow" style="font-size:13px; letter-spacing:2px;">Factsheet — Floor 12</div>
-    <div class="display" style="font-size:42px; font-weight:600; margin-top:20px; line-height:1.15;">1.240 m²<br>ready for<br>your name.</div>
-    <div class="ph" style="height:200px; margin-top:28px;"><span style="font-size:13px;">Image</span></div>
-    <img src="logo-fc.png" style="width:120px; position:absolute; bottom:36px; left:36px;">
-    <div style="position:absolute; right:0; bottom:0; width:56px; height:56px; background:var(--orange); clip-path:polygon(100% 0, 100% 100%, 0 100%);"></div>
-  </div>
-  <!-- Social mock -->
-  <div style="position:absolute; top:300px; left:1080px; width:400px; height:400px; background:var(--slate); box-shadow:0 20px 50px rgba(31,38,48,.15); padding:36px; color:#fff;">
-    <div class="eyebrow on-dark" style="font-size:13px; letter-spacing:2px;">Now leasing</div>
-    <div class="display" style="font-size:40px; font-weight:600; margin-top:18px; line-height:1.15;">See the city<br>before it<br>sees you.</div>
-    <img src="logo-white.png" style="width:120px; position:absolute; bottom:36px; left:36px;">
-    <div class="swatch-label" style="position:absolute; bottom:40px; right:36px; color:rgba(255,255,255,.7); font-size:13px;">@firstrotterdam</div>
-  </div>
-  <!-- Banner mock -->
-  <div style="position:absolute; top:740px; left:1080px; width:740px; height:126px; background:var(--ink); box-shadow:0 20px 50px rgba(31,38,48,.15); display:flex; align-items:center; padding:0 40px; gap:36px; color:#fff;">
-    <img src="logo-white.png" style="width:110px;">
-    <div class="display" style="font-size:26px; font-weight:500;">Offices from 500 m² — directly at Rotterdam Centraal</div>
-    <div style="background:var(--orange); padding:12px 24px;" class="swatch-label">Plan a tour</div>
-  </div>
-  <div style="position:absolute; top:300px; left:1520px; width:300px; height:400px;">
-    <div style="background:#fff; height:190px; box-shadow:0 20px 50px rgba(31,38,48,.12); padding:24px;"><div class="eyebrow" style="font-size:12px;">Signage</div><div class="display" style="font-size:26px; font-weight:600; margin-top:10px;">Wayfinding in Slate + White</div></div>
-    <div style="background:var(--orange); height:190px; margin-top:20px; padding:24px; color:#fff;"><div class="eyebrow" style="font-size:12px; color:rgba(255,255,255,.8);">Accent</div><div class="display" style="font-size:26px; font-weight:600; margin-top:10px;">Orange only as the pointer</div></div>
-  </div>
-  <div class="footer"><img class="mark" src="logo-ink.png"><span>Brand — FIRST Rotterdam</span><span>Guidelines V1 — 2026</span></div>
-</section>
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-<!-- ============ 18 CLOSING ============ -->
-<section class="page" data-document-role="page" data-label="Closing" style="background:var(--ink);">
-  <img src="logo-white.png" style="position:absolute; width:520px; left:100px; top:400px;">
-  <div style="position:absolute; bottom:200px; left:100px;" class="eyebrow on-dark">First in every sense.</div>
-  <div style="position:absolute; bottom:100px; left:100px; right:100px; display:flex; justify-content:space-between; border-top:1px solid rgba(255,255,255,.2); padding-top:36px;">
-    <span class="swatch-label" style="color:rgba(255,255,255,.6);">Leasing — Cushman &amp; Wakefield</span>
-    <span class="swatch-label" style="color:rgba(255,255,255,.6);">firstrotterdam.nl</span>
-    <span class="swatch-label" style="color:rgba(255,255,255,.6);">Brand Guidelines V1 — 2026</span>
-  </div>
-  <div style="position:absolute; right:0; top:0; width:120px; height:120px; background:var(--orange); clip-path:polygon(0 0, 100% 0, 100% 100%);"></div>
-</section>
-
+  // copy hex
+  document.querySelectorAll('.sw').forEach(sw => sw.addEventListener('click', () => {
+    navigator.clipboard?.writeText(sw.dataset.hex);
+    sw.classList.add('copied-on');
+    setTimeout(() => sw.classList.remove('copied-on'), 1400);
+  }));
+</script>
 </body>
 </html>
