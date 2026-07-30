@@ -111,13 +111,12 @@
   .markgrid .wordcard{ background:var(--mist); }
   .markgrid .fcard{ background:var(--slate); }
   .markgrid .fcard img{ filter:brightness(0) invert(1); }
-  .markrow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
-  @media (max-width:760px){ .markrow{ grid-template-columns:repeat(2,1fr); } }
+  .markrow{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
+  @media (max-width:860px){ .markrow{ grid-template-columns:1fr; } }
   .markrow .c1{ background:#fff; border:1px solid var(--mist); }
   .markrow .c2{ background:var(--ink); border:1px solid rgba(255,255,255,.14); }
   .markrow .c2 img{ filter:brightness(0) invert(1); }
   .markrow .c3{ background:var(--mist); }
-  .markrow .c4{ background:var(--mist); border:1px solid var(--slate-60); }
 
   .colorrow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.8vw,28px); margin-top:clamp(20px,2.6vw,40px); }
   @media (max-width:760px){ .colorrow{ grid-template-columns:repeat(2,1fr); } }
@@ -415,19 +414,18 @@
   <p class="body reveal d2" style="max-width:640px; margin-top:20px;">The angled terminal of the T points forward and upward. The F&nbsp;monogram distils that gesture into a single mark - built for app icons, favicons, signage and small applications where the full wordmark can't breathe.</p>
   <div class="markgrid">
     <div class="card wordcard reveal"><span class="tag" style="color:var(--slate);">Primary - wordmark</span><img src="logo-fc.png" alt="FIRST Rotterdam wordmark"></div>
-    <div class="card fcard reveal d1"><span class="tag" style="color:rgba(255,255,255,.75);">Monogram - the F</span><img src="logo-f.svg" alt="F monogram"></div>
+    <div class="card fcard reveal d1"><span class="tag" style="color:rgba(255,255,255,.75);">Monogram - the F</span><img src="logo-f-3d.svg" alt="F monogram"></div>
   </div>
   <div class="markrow">
     <div class="card c1 reveal"><span class="tag" style="color:var(--slate);">On light</span><img src="logo-fc.png" alt=""></div>
-    <div class="card c2 reveal d1"><span class="tag" style="color:rgba(255,255,255,.8);">Monogram on ink</span><img src="logo-f.svg" alt=""><div style="position:absolute; right:0; bottom:0; width:40px; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%);"></div></div>
-    <div class="card c3 reveal d2"><span class="tag" style="color:var(--slate);">Monogram on light</span><img src="logo-f.svg" alt=""></div>
-    <div class="card c4 reveal d3"><span class="tag" style="color:var(--slate);">Monogram - dimensional</span><img src="logo-f-3d.svg" alt="Dimensional F"></div>
+    <div class="card c2 reveal d1"><span class="tag" style="color:rgba(255,255,255,.8);">Monogram on ink</span><img src="logo-f-3d.svg" alt=""><div style="position:absolute; right:0; bottom:0; width:40px; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%);"></div></div>
+    <div class="card c3 reveal d2"><span class="tag" style="color:var(--slate);">Monogram on light</span><img src="logo-f-3d.svg" alt=""></div>
   </div>
   <div class="colorrow">
-    <div class="card reveal" style="background:var(--slate);"><span class="tag" style="color:rgba(255,255,255,.8);">FIRST Slate</span><img src="logo-f.svg" alt=""></div>
-    <div class="card reveal d1" style="background:var(--ink);"><span class="tag" style="color:rgba(255,255,255,.7);">Skyline Ink</span><img src="logo-f.svg" alt=""></div>
-    <div class="card reveal d2" style="background:var(--orange);"><span class="tag" style="color:rgba(255,255,255,.85);">Signal Orange</span><img src="logo-f.svg" alt=""></div>
-    <div class="card on-light reveal" style="background:var(--mist);"><span class="tag" style="color:var(--slate);">Mist</span><img src="logo-f.svg" alt=""></div>
+    <div class="card reveal" style="background:var(--slate);"><span class="tag" style="color:rgba(255,255,255,.8);">FIRST Slate</span><img src="logo-f-3d.svg" alt=""></div>
+    <div class="card reveal d1" style="background:var(--ink);"><span class="tag" style="color:rgba(255,255,255,.7);">Skyline Ink</span><img src="logo-f-3d.svg" alt=""></div>
+    <div class="card reveal d2" style="background:var(--orange);"><span class="tag" style="color:rgba(255,255,255,.85);">Signal Orange</span><img src="logo-f-3d.svg" alt=""></div>
+    <div class="card on-light reveal" style="background:var(--mist);"><span class="tag" style="color:var(--slate);">Mist</span><img src="logo-f-3d.svg" alt=""></div>
   </div>
 </section>
 
@@ -662,7 +660,7 @@
           <div class="bcard back">
             <div class="bn">J. Bryant</div>
             <div class="bl">Leasing manager<br>first@cushwake.com<br>firstrotterdam.nl</div>
-            <img src="logo-f.svg" alt="">
+            <img src="logo-f-3d.svg" alt="">
             <div class="bcut"></div>
           </div>
         </div>
