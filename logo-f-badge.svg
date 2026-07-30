@@ -3,12 +3,38 @@
   <g clip-path="url(#badgeRound)">
     <rect width="100" height="100" fill="#E9EDF1"/>
     <path d="M76 100 L100 76 L100 100 Z" fill="#FF5A00"/>
-    <svg x="32.14" y="18.00" width="35.72" height="64.00" viewBox="0 0 108.48 194.35">
-      <path fill="#0D1015" d="M101.42,0l1.05.25c1.94,1.03,3.89,2.07,5.82,3.11l.19.42v31.82s-54.42,7.99-54.42,7.99l-15.64,2.31v36.69s35.06-5.15,35.06-5.15l15.91-2.43,7.98,4.05c.32.16.29.68.27,1.06l-.08,30.22-15.07,2.38-44.05,6.48-.02,70.29c0,.43-.67.5-.99.5l-26.09,3.81-3.28.44c-.09.01-.14.04-.14.11h-.85s-.96-.25-.96-.25l-5.96-3.56L0,190.26V14.69s.09-.3.09-.3L96.83.36l3.87-.28.71-.08Z"/>
-  <path fill="#FFFFFF" d="M83.28,82.22l13.2-1.98v11.01s-.07,18.14-.07,18.14l-7.1,1.12-51.62,7.64c-.29.09-.4.2-.44.53v70.17s-29.3,4.3-29.3,4.3V19.78S108.07,5.22,108.07,5.22l.03,29.31-56.89,8.32-13.43,1.98c-.27.04-.53.2-.53.55v43.01c0,.43.38.62.75.57l32.35-4.75,12.93-1.98Z"/>
-  <polygon fill="#0D1015" points="6.77 192.77 .62 189.12 .61 16.26 6.78 19.61 6.77 192.77"/>
-  <polygon fill="#0D1015" points="7.56 18.65 1.91 15.63 8.85 14.59 52.49 8.27 101 1.21 106.82 4.21 7.56 18.65"/>
-  <polygon fill="#0D1015" points="67.65 83.41 38.44 87.68 38.44 83.75 74.11 78.51 89.14 76.19 95.2 79.26 83.53 80.99 67.65 83.41"/>
-    </svg>
+    <g transform="translate(26.36,18.00) scale(0.229704)" fill="#1F2630">
+      <rect class="cls-5" x="26.14" y="225.26" width="41.88" height="53.35"/>
+      <rect class="cls-2" x="1.81" y="62.8" width="38.49" height="42.03" transform="translate(-62.76 104.86) rotate(-90)"/>
+      <rect class="cls-2" x="39.33" y="74.47" width="38.56" height="18.74" transform="translate(-25.24 142.45) rotate(-89.99)"/>
+      <rect class="cls-6" x="0" y="255.48" width="18.96" height="23.14"/>
+      <rect class="cls-2" x="0" y="110.24" width="18.95" height="23.1"/>
+      <rect class="cls-6" x="0" y="225.26" width="18.96" height="23.06"/>
+      <rect class="cls-2" x="0" y="140.53" width="18.95" height="23.04"/>
+      <rect class="cls-2" x="49.24" y="110.24" width="18.74" height="23.11"/>
+      <rect class="cls-2" x="49.25" y="140.52" width="18.77" height="23.04"/>
+      <rect class="cls-2" x="0" y="170.75" width="18.95" height="22.33"/>
+      <rect class="cls-4" x="49.25" y="170.75" width="18.77" height="22.33"/>
+      <rect class="cls-2" x="26.15" y="110.24" width="15.91" height="23.06"/>
+      <rect class="cls-1" x="22.58" y="144.09" width="23.04" height="15.92" transform="translate(-117.94 186.13) rotate(-89.99)"/>
+      <rect class="cls-2" x="26.15" y="170.75" width="15.92" height="22.32"/>
+      <rect class="cls-3" x="0" y="200.27" width="18.96" height="17.8"/>
+      <rect class="cls-2" x="49.25" y="200.27" width="18.77" height="17.8"/>
+      <rect class="cls-2" x="75.18" y="110.24" width="35.74" height="23.1"/>
+      <rect class="cls-2" x="118.14" y="140.53" width="18.98" height="23.04"/>
+      <rect class="cls-2" x="118.14" y="110.24" width="18.98" height="23.04"/>
+      <rect class="cls-1" x="92.22" y="144.92" width="23.06" height="14.29" transform="translate(-48.33 255.78) rotate(-89.99)"/>
+      <rect class="cls-2" x="75.18" y="140.52" width="14.16" height="23.04"/>
+      <rect class="cls-2" x="139.4" y="115.21" width="23.11" height="13.17" transform="translate(29.12 272.72) rotate(-89.99)"/>
+      <rect class="cls-1" x="139.42" y="145.45" width="23.05" height="13.18" transform="translate(-1.13 302.96) rotate(-89.99)"/>
+      <rect class="cls-7" x="26.15" y="200.27" width="15.92" height="17.79"/>
+      <rect class="cls-2" x="146.39" y="-2.05" width="57.38" height="61.49" transform="translate(146.37 203.77) rotate(-89.99)"/>
+      <rect class="cls-3" x="26.13" y="0" width="41.86" height="57.38"/>
+      <rect class="cls-3" x=".04" y="0" width="18.93" height="57.38"/>
+      <rect class="cls-2" x="75.16" y="31.86" width="35.75" height="25.53"/>
+      <rect class="cls-3" x="75.15" y="0" width="35.76" height="24.72"/>
+      <rect class="cls-1" x="118.1" y="31.86" width="19.03" height="25.53"/>
+      <rect class="cls-2" x="118.1" y="0" width="19.02" height="24.72"/>
+    </g>
   </g>
 </svg>
