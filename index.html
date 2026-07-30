@@ -111,18 +111,18 @@
   .markgrid .wordcard{ background:var(--mist); }
   .markgrid .wordcard img, .markrow .c1 img{ max-width:85%; max-height:none; }
   .markgrid .fcard{ background:var(--slate); }
-  .markgrid .fcard img{ filter:brightness(0) invert(1); max-width:65%; max-height:65%; }
+  .markgrid .fcard img{ max-width:65%; max-height:65%; }
   .markrow{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
   @media (max-width:860px){ .markrow{ grid-template-columns:1fr; } }
   .markrow .c1{ background:#fff; border:1px solid var(--mist); }
   .markrow .c2{ background:var(--ink); border:1px solid rgba(255,255,255,.14); }
-  .markrow .c2 img{ filter:brightness(0) invert(1); max-width:65%; max-height:65%; }
+  .markrow .c2 img{ max-width:65%; max-height:65%; }
   .markrow .c3{ background:var(--mist); }
   .markrow .c3 img{ max-width:65%; max-height:65%; }
 
   .colorrow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.8vw,28px); margin-top:clamp(20px,2.6vw,40px); }
   @media (max-width:760px){ .colorrow{ grid-template-columns:repeat(2,1fr); } }
-  .colorrow .card img{ filter:brightness(0) invert(1); max-width:65%; max-height:65%; }
+  .colorrow .card img{ max-width:65%; max-height:65%; }
   .colorrow .card.on-light img{ filter:none; }
   .colorrow .card.on-light{ border:1px solid var(--slate-60); }
 
