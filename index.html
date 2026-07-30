@@ -12,7 +12,7 @@
 <style>
   :root{
     --slate:#7B8899; --ink:#1F2630; --orange:#FF5A00;
-    --mist:#E9EDF1; --cloud:#F7F8FA; --slate-60:#A6B0BD; --slate-20:#D9DEE4;
+    --mist:#E9EDF1; --slate-60:#A6B0BD;
     --pad: clamp(20px, 5vw, 96px);
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -108,29 +108,29 @@
   .card:hover{ transform:translateY(-6px); }
   .card .tag{ position:absolute; top:18px; left:22px; font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase; opacity:.6; }
   .card img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
-  .markgrid .wordcard{ background:var(--cloud); }
+  .markgrid .wordcard{ background:var(--mist); }
   .markgrid .fcard{ background:var(--slate); }
   .markgrid .fcard img{ filter:brightness(0) invert(1); }
-  .markrow{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
-  @media (max-width:860px){ .markrow{ grid-template-columns:1fr; } }
+  .markrow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
+  @media (max-width:760px){ .markrow{ grid-template-columns:repeat(2,1fr); } }
   .markrow .c1{ background:#fff; border:1px solid var(--mist); }
   .markrow .c2{ background:var(--ink); border:1px solid rgba(255,255,255,.14); }
   .markrow .c2 img{ filter:brightness(0) invert(1); }
-  .markrow .c3{ background:var(--cloud); }
+  .markrow .c3{ background:var(--mist); }
+  .markrow .c4{ background:var(--mist); border:1px solid var(--slate-60); }
 
-  .colorrow{ display:grid; grid-template-columns:repeat(6,1fr); gap:clamp(14px,1.8vw,28px); margin-top:clamp(20px,2.6vw,40px); }
-  @media (max-width:1100px){ .colorrow{ grid-template-columns:repeat(3,1fr); } }
-  @media (max-width:620px){ .colorrow{ grid-template-columns:repeat(2,1fr); } }
+  .colorrow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.8vw,28px); margin-top:clamp(20px,2.6vw,40px); }
+  @media (max-width:760px){ .colorrow{ grid-template-columns:repeat(2,1fr); } }
   .colorrow .card img{ filter:brightness(0) invert(1); }
   .colorrow .card.on-light img{ filter:none; }
-  .colorrow .card.on-light{ border:1px solid var(--mist); }
+  .colorrow .card.on-light{ border:1px solid var(--slate-60); }
 
   /* the cut */
   #cut{ background:#fff; }
   .cutgrid{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(36px,5vw,72px); }
   @media (max-width:1100px){ .cutgrid{ grid-template-columns:1fr 1fr; } }
   @media (max-width:560px){ .cutgrid{ grid-template-columns:1fr; } }
-  .cutcard{ border-radius:2px; position:relative; overflow:hidden; aspect-ratio:1; background:var(--cloud); border:1px solid var(--mist); }
+  .cutcard{ border-radius:2px; position:relative; overflow:hidden; aspect-ratio:1; background:var(--mist); border:1px solid var(--slate-60); }
   .cutcard .lbl{ position:absolute; top:20px; left:24px; font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--slate); z-index:2; }
   .cutcard .corner{ position:absolute; right:0; bottom:0; width:34%; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); transition:width .6s cubic-bezier(.16,1,.3,1); }
   .cutcard:hover .corner{ width:46%; }
@@ -150,9 +150,8 @@
   .cutrules .rule b{ font-family:'Barlow',sans-serif; font-weight:600; display:block; margin-bottom:6px; font-size:clamp(15px,1.2vw,19px); }
   .cutrules .rule span{ font-size:clamp(13px,1vw,16px); font-weight:300; color:#3D4653; line-height:1.6; }
 
-  .swatches{ display:grid; grid-template-columns:repeat(6,1fr); gap:14px; margin-top:clamp(36px,5vw,72px); }
-  @media (max-width:1100px){ .swatches{ grid-template-columns:repeat(3,1fr); } }
-  @media (max-width:620px){ .swatches{ grid-template-columns:repeat(2,1fr); } }
+  .swatches{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:clamp(36px,5vw,72px); }
+  @media (max-width:760px){ .swatches{ grid-template-columns:repeat(2,1fr); } }
   .sw{
     border-radius:2px; aspect-ratio:3/4; padding:20px; cursor:pointer; position:relative;
     display:flex; flex-direction:column; justify-content:flex-end;
@@ -174,7 +173,7 @@
   .bigtype .lt{ color:var(--slate); }
   .fontcards{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2vw,28px); }
   @media (max-width:620px){ .fontcards{ grid-template-columns:1fr; } }
-  .fontcard{ background:var(--cloud); border-radius:2px; padding:clamp(20px,2.2vw,34px); }
+  .fontcard{ background:var(--mist); border-radius:2px; padding:clamp(20px,2.2vw,34px); }
   .fontcard .glyph{ font-family:'Barlow'; font-size:clamp(48px,5vw,84px); font-weight:600; line-height:1; }
   .fontcard.inter .glyph{ font-family:'Inter'; font-weight:300; }
   .fontcard .fname{ font-family:'Barlow',sans-serif; font-weight:600; margin-top:18px; font-size:clamp(16px,1.3vw,21px); }
@@ -201,7 +200,7 @@
   .t-body-demo{ font-family:'Inter'; font-weight:300; font-size:clamp(15px,1.15vw,18px); line-height:1.7; color:#3D4653; max-width:620px; }
   .t-caption{ font-family:'Inter'; font-weight:400; font-size:clamp(12px,.95vw,13.5px); line-height:1.55; color:var(--slate); max-width:520px; }
 
-  .inpractice{ margin-top:clamp(40px,5vw,76px); display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(24px,3vw,56px); align-items:center; background:var(--cloud); border-radius:2px; padding:clamp(24px,3.4vw,64px); }
+  .inpractice{ margin-top:clamp(40px,5vw,76px); display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(24px,3vw,56px); align-items:center; background:var(--mist); border-radius:2px; padding:clamp(24px,3.4vw,64px); }
   @media (max-width:960px){ .inpractice{ grid-template-columns:1fr; } }
   .inpractice .demo{ background:#fff; border-radius:2px; box-shadow:0 24px 60px rgba(31,38,48,.12); padding:clamp(24px,2.8vw,48px); position:relative; overflow:hidden; }
   .inpractice .demo .cutc{ position:absolute; right:0; bottom:0; width:52px; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
@@ -235,7 +234,7 @@
   .quote .sd p{ font-weight:300; font-size:clamp(15px,1.2vw,19px); line-height:1.6; padding:20px 24px 24px; }
 
   /* ============ applications showcase ============ */
-  #apps{ background:var(--cloud); }
+  #apps{ background:var(--mist); }
   .showgrid{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(18px,2.4vw,36px); margin-top:clamp(36px,5vw,72px); }
   @media (max-width:960px){ .showgrid{ grid-template-columns:1fr; } }
   .show{ border-radius:2px; overflow:hidden; position:relative; min-height:clamp(420px,44vw,620px); display:flex; align-items:center; justify-content:center; }
@@ -422,14 +421,13 @@
     <div class="card c1 reveal"><span class="tag" style="color:var(--slate);">On light</span><img src="logo-fc.png" alt=""></div>
     <div class="card c2 reveal d1"><span class="tag" style="color:rgba(255,255,255,.8);">Monogram on ink</span><img src="logo-f.svg" alt=""><div style="position:absolute; right:0; bottom:0; width:40px; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%);"></div></div>
     <div class="card c3 reveal d2"><span class="tag" style="color:var(--slate);">Monogram on light</span><img src="logo-f.svg" alt=""></div>
+    <div class="card c4 reveal d3"><span class="tag" style="color:var(--slate);">Monogram - dimensional</span><img src="logo-f-3d.svg" alt="Dimensional F"></div>
   </div>
   <div class="colorrow">
     <div class="card reveal" style="background:var(--slate);"><span class="tag" style="color:rgba(255,255,255,.8);">FIRST Slate</span><img src="logo-f.svg" alt=""></div>
     <div class="card reveal d1" style="background:var(--ink);"><span class="tag" style="color:rgba(255,255,255,.7);">Skyline Ink</span><img src="logo-f.svg" alt=""></div>
     <div class="card reveal d2" style="background:var(--orange);"><span class="tag" style="color:rgba(255,255,255,.85);">Signal Orange</span><img src="logo-f.svg" alt=""></div>
     <div class="card on-light reveal" style="background:var(--mist);"><span class="tag" style="color:var(--slate);">Mist</span><img src="logo-f.svg" alt=""></div>
-    <div class="card on-light reveal d1" style="background:var(--cloud);"><span class="tag" style="color:var(--slate);">Cloud</span><img src="logo-f.svg" alt=""></div>
-    <div class="card on-light reveal d2" style="background:#fff;"><span class="tag" style="color:var(--slate);">White</span><img src="logo-f.svg" alt=""></div>
   </div>
 </section>
 
@@ -464,7 +462,7 @@
   </div>
 </section>
 
-<section id="color" style="background:var(--cloud);">
+<section id="color" style="background:var(--mist);">
   <span class="chnum" aria-hidden="true">04</span>
   <span class="eyebrow reveal">Color - 04</span>
   <h2 class="h-lg reveal d1" style="margin-top:18px;">Calm slate carries the brand.<br><span style="color:var(--slate);">Signal orange points the way.</span></h2>
@@ -473,9 +471,7 @@
     <div class="sw reveal" data-hex="#7B8899" style="background:#7B8899; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">FIRST Slate</span><span class="hx">#7B8899</span></div>
     <div class="sw reveal d1" data-hex="#1F2630" style="background:#1F2630; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">Skyline Ink</span><span class="hx">#1F2630</span></div>
     <div class="sw reveal d2" data-hex="#FF5A00" style="background:#FF5A00; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">Signal Orange</span><span class="hx">#FF5A00</span></div>
-    <div class="sw reveal d1" data-hex="#E9EDF1" style="background:#E9EDF1;"><span class="copied">Copied ✓</span><span class="nm">Mist</span><span class="hx">#E9EDF1</span></div>
-    <div class="sw reveal d2" data-hex="#F7F8FA" style="background:#F7F8FA; border:1px solid var(--mist);"><span class="copied">Copied ✓</span><span class="nm">Cloud</span><span class="hx">#F7F8FA</span></div>
-    <div class="sw reveal d3" data-hex="#FFFFFF" style="background:#fff; border:1px solid var(--mist);"><span class="copied">Copied ✓</span><span class="nm">White</span><span class="hx">#FFFFFF</span></div>
+    <div class="sw reveal d1" data-hex="#E9EDF1" style="background:#E9EDF1; border:1px solid var(--slate-60);"><span class="copied">Copied ✓</span><span class="nm">Mist</span><span class="hx">#E9EDF1</span></div>
   </div>
 </section>
 
