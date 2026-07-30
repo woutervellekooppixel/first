@@ -111,18 +111,21 @@
   .markgrid .wordcard{ background:var(--mist); }
   .markgrid .wordcard img, .markrow .c1 img{ max-width:85%; max-height:none; }
   .markgrid .fcard{ background:var(--slate); }
-  .markgrid .fcard img{ max-width:65%; max-height:70%; }
-  .markrow{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
-  @media (max-width:860px){ .markrow{ grid-template-columns:1fr; } }
+  .markgrid .fcard img{ filter:brightness(0) invert(1); max-width:65%; max-height:70%; }
+  .markrow{ display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
+  @media (max-width:1100px){ .markrow{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:620px){ .markrow{ grid-template-columns:repeat(2,1fr); } }
+  .markrow .c5, .markrow .c6{ background:#fff; border:1px solid var(--mist); }
+  .markrow .c5 img, .markrow .c6 img{ max-width:65%; max-height:70%; }
   .markrow .c1{ background:#fff; border:1px solid var(--mist); }
   .markrow .c2{ background:var(--ink); border:1px solid rgba(255,255,255,.14); }
-  .markrow .c2 img{ max-width:65%; max-height:70%; }
+  .markrow .c2 img{ filter:brightness(0) invert(1); max-width:65%; max-height:70%; }
   .markrow .c3{ background:var(--mist); }
   .markrow .c3 img{ max-width:65%; max-height:70%; }
 
   .colorrow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,1.8vw,28px); margin-top:clamp(20px,2.6vw,40px); }
   @media (max-width:760px){ .colorrow{ grid-template-columns:repeat(2,1fr); } }
-  .colorrow .card img{ max-width:65%; max-height:70%; }
+  .colorrow .card img{ filter:brightness(0) invert(1); max-width:65%; max-height:70%; }
   .colorrow .card.on-light img{ filter:none; }
   .colorrow .card.on-light{ border:1px solid var(--slate-60); }
 
@@ -416,12 +419,14 @@
   <p class="body reveal d2" style="max-width:640px; margin-top:20px;">The angled terminal of the T points forward and upward. The F&nbsp;monogram distils that gesture into a single mark - built for app icons, favicons, signage and small applications where the full wordmark can't breathe.</p>
   <div class="markgrid">
     <div class="card wordcard reveal"><span class="tag" style="color:var(--slate);">Primary - wordmark</span><img src="logo-fc.png" alt="FIRST Rotterdam wordmark"></div>
-    <div class="card fcard reveal d1"><span class="tag" style="color:rgba(255,255,255,.75);">Monogram - F Rotterdam</span><img src="logo-f-3d.svg" alt="F monogram"></div>
+    <div class="card fcard reveal d1"><span class="tag" style="color:rgba(255,255,255,.75);">Monogram - the F</span><img src="logo-f-3d.svg" alt="F monogram"></div>
   </div>
   <div class="markrow">
     <div class="card c1 reveal"><span class="tag" style="color:var(--slate);">On light</span><img src="logo-fc.png" alt=""></div>
     <div class="card c2 reveal d1"><span class="tag" style="color:rgba(255,255,255,.8);">Monogram on ink</span><img src="logo-f-3d.svg" alt=""><div style="position:absolute; right:0; bottom:0; width:40px; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%);"></div></div>
     <div class="card c3 reveal d2"><span class="tag" style="color:var(--slate);">Monogram on light</span><img src="logo-f-3d.svg" alt=""></div>
+    <div class="card c5 reveal d3"><span class="tag" style="color:var(--slate);">F in Signal Orange</span><img src="logo-f-orange.svg" alt="F monogram in orange"></div>
+    <div class="card c6 reveal d3"><span class="tag" style="color:var(--slate);">F in Skyline Ink</span><img src="logo-f-ink.svg" alt="F monogram in dark blue"></div>
   </div>
   <div class="colorrow">
     <div class="card reveal" style="background:var(--slate);"><span class="tag" style="color:rgba(255,255,255,.8);">FIRST Slate</span><img src="logo-f-3d.svg" alt=""></div>
@@ -662,7 +667,7 @@
           <div class="bcard back">
             <div class="bn">J. Bryant</div>
             <div class="bl">Leasing manager<br>first@cushwake.com<br>firstrotterdam.nl</div>
-            <img src="logo-f-3d.svg" alt="">
+            <img src="logo-f-icon.svg" alt="">
             <div class="bcut"></div>
           </div>
         </div>
