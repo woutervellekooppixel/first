@@ -1,0 +1,80 @@
+<!doctype html><meta charset="utf-8"><title>FIRST - accent alternatieven</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 -apple-system,Inter,sans-serif;color:#1F2630;background:#F7F8FA;padding:40px}
+h1{font-size:26px;margin:0 0 6px}p.lead{color:#6b7280;margin:0 0 28px;max-width:760px}
+.row{display:grid;grid-template-columns:230px 1fr 1fr 120px;gap:14px;align-items:stretch;margin-bottom:12px}
+.meta{display:flex;flex-direction:column;justify-content:center;padding:12px 14px;background:#fff;border-radius:3px}
+.meta b{font-size:15px}.src{color:#7B8899;font-size:12px}.hex{font:11px ui-monospace,monospace;color:#9aa3ad;letter-spacing:.04em}
+.note{font-size:11px;color:#b45309;margin-top:3px}
+.demo{position:relative;padding:18px 20px;border-radius:3px;display:flex;align-items:center;gap:12px;overflow:hidden;min-height:74px}
+.demo.light{background:#fff;border:1px solid #E9EDF1}.demo.ink{background:#1F2630;color:#fff}
+.dot{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+.txt{font-weight:600;letter-spacing:-.01em}
+.cut{position:absolute;right:0;bottom:0;width:34px;height:34px;clip-path:polygon(100% 0,100% 100%,0 100%)}
+.demo em{margin-left:auto;font-style:normal;font:11px ui-monospace,monospace;opacity:.55;padding-right:40px}
+.verdict{display:flex;align-items:center;font-size:12px;color:#166534}
+.row.bad .verdict{color:#b91c1c}.row.bad .meta{opacity:.6}
+</style>
+<h1>FIRST - alternatieven voor Signal Orange</h1>
+<p class="lead">Elk accent uit de CSS van een echt merk. Links op wit, rechts op Skyline Ink - het accent moet op allebei werken, want de cut staat in de gids op beide vlakken. Waar bron en tegenhanger verschillen, komt de tweede kleur uit hetzelfde palet.</p>
+<div class="row">
+  <div class="meta"><b>First Teal</b><span class="src">Valley Amsterdam</span><span class="hex">#243C43 / #C6D3DC</span><span class="note">huidige keuze</span></div>
+  <div class="demo light"><span class="dot" style="background:#243C43"></span><span class="txt">Start at the top<b style="color:#243C43">.</b></span><span class="cut" style="background:#243C43"></span><em>10.96:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#C6D3DC"></span><span class="txt">Start at the top<b style="color:#C6D3DC">.</b></span><span class="cut" style="background:#C6D3DC"></span><em>9.98:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Deep Green</b><span class="src">The Ned, Londen</span><span class="hex">#0C4833 / #9EA7A3</span></div>
+  <div class="demo light"><span class="dot" style="background:#0C4833"></span><span class="txt">Start at the top<b style="color:#0C4833">.</b></span><span class="cut" style="background:#0C4833"></span><em>9.93:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#9EA7A3"></span><span class="txt">Start at the top<b style="color:#9EA7A3">.</b></span><span class="cut" style="background:#9EA7A3"></span><em>6.17:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Crimson</b><span class="src">Knight Frank</span><span class="hex">#D0103A</span></div>
+  <div class="demo light"><span class="dot" style="background:#D0103A"></span><span class="txt">Start at the top<b style="color:#D0103A">.</b></span><span class="cut" style="background:#D0103A"></span><em>5.18:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#D0103A"></span><span class="txt">Start at the top<b style="color:#D0103A">.</b></span><span class="cut" style="background:#D0103A"></span><em>2.77:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Rosewood Brick</b><span class="src">Rosewood Hotels</span><span class="hex">#9E2E2E / #CFCBAF</span><span class="note">accent + zand uit één palet</span></div>
+  <div class="demo light"><span class="dot" style="background:#9E2E2E"></span><span class="txt">Start at the top<b style="color:#9E2E2E">.</b></span><span class="cut" style="background:#9E2E2E"></span><em>6.85:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#CFCBAF"></span><span class="txt">Start at the top<b style="color:#CFCBAF">.</b></span><span class="cut" style="background:#CFCBAF"></span><em>9.30:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>SL Green Navy</b><span class="src">SL Green (NY torens)</span><span class="hex">#091842 / #82A1CD</span></div>
+  <div class="demo light"><span class="dot" style="background:#091842"></span><span class="txt">Start at the top<b style="color:#091842">.</b></span><span class="cut" style="background:#091842"></span><em>16.19:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#82A1CD"></span><span class="txt">Start at the top<b style="color:#82A1CD">.</b></span><span class="cut" style="background:#82A1CD"></span><em>5.75:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Mandarin Jade</b><span class="src">Mandarin Oriental</span><span class="hex">#2E3232 / #B7CDC2</span><span class="note">jade als licht accent</span></div>
+  <div class="demo light"><span class="dot" style="background:#2E3232"></span><span class="txt">Start at the top<b style="color:#2E3232">.</b></span><span class="cut" style="background:#2E3232"></span><em>12.21:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#B7CDC2"></span><span class="txt">Start at the top<b style="color:#B7CDC2">.</b></span><span class="cut" style="background:#B7CDC2"></span><em>9.09:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Tate Blue</b><span class="src">Tate</span><span class="hex">#0072CE</span></div>
+  <div class="demo light"><span class="dot" style="background:#0072CE"></span><span class="txt">Start at the top<b style="color:#0072CE">.</b></span><span class="cut" style="background:#0072CE"></span><em>4.60:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#0072CE"></span><span class="txt">Start at the top<b style="color:#0072CE">.</b></span><span class="cut" style="background:#0072CE"></span><em>3.12:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Estate Green</b><span class="src">Empire State Realty</span><span class="hex">#6E9934</span></div>
+  <div class="demo light"><span class="dot" style="background:#6E9934"></span><span class="txt">Start at the top<b style="color:#6E9934">.</b></span><span class="cut" style="background:#6E9934"></span><em>3.15:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#6E9934"></span><span class="txt">Start at the top<b style="color:#6E9934">.</b></span><span class="cut" style="background:#6E9934"></span><em>4.55:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Olive Gold</b><span class="src">Hudson Yards</span><span class="hex">#7C6E2F</span><span class="note">warm</span></div>
+  <div class="demo light"><span class="dot" style="background:#7C6E2F"></span><span class="txt">Start at the top<b style="color:#7C6E2F">.</b></span><span class="cut" style="background:#7C6E2F"></span><em>4.79:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#7C6E2F"></span><span class="txt">Start at the top<b style="color:#7C6E2F">.</b></span><span class="cut" style="background:#7C6E2F"></span><em>3.00:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row bad">
+  <div class="meta"><b>Bishopsgate Gold</b><span class="src">22 Bishopsgate</span><span class="hex">#ECB506</span><span class="note">warm</span></div>
+  <div class="demo light"><span class="dot" style="background:#ECB506"></span><span class="txt">Start at the top<b style="color:#ECB506">.</b></span><span class="cut" style="background:#ECB506"></span><em>1.77:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#ECB506"></span><span class="txt">Start at the top<b style="color:#ECB506">.</b></span><span class="cut" style="background:#ECB506"></span><em>8.11:1</em></div>
+  <div class="verdict">valt weg</div>
+</div><div class="row">
+  <div class="meta"><b>Oxblood</b><span class="src">Brookfield Properties</span><span class="hex">#4A081E / #CFCBAF</span></div>
+  <div class="demo light"><span class="dot" style="background:#4A081E"></span><span class="txt">Start at the top<b style="color:#4A081E">.</b></span><span class="cut" style="background:#4A081E"></span><em>14.70:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#CFCBAF"></span><span class="txt">Start at the top<b style="color:#CFCBAF">.</b></span><span class="cut" style="background:#CFCBAF"></span><em>9.30:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div><div class="row">
+  <div class="meta"><b>Signal Orange</b><span class="src">huidige gids</span><span class="hex">#FF5A00</span><span class="note">wat Suzanne wil vervangen</span></div>
+  <div class="demo light"><span class="dot" style="background:#FF5A00"></span><span class="txt">Start at the top<b style="color:#FF5A00">.</b></span><span class="cut" style="background:#FF5A00"></span><em>2.94:1</em></div>
+  <div class="demo ink"><span class="dot" style="background:#FF5A00"></span><span class="txt">Start at the top<b style="color:#FF5A00">.</b></span><span class="cut" style="background:#FF5A00"></span><em>4.87:1</em></div>
+  <div class="verdict">werkt op beide</div>
+</div>
