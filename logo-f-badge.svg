@@ -2,7 +2,7 @@
   <defs><clipPath id="badgeRound"><rect width="100" height="100" rx="20"/></clipPath></defs>
   <g clip-path="url(#badgeRound)">
     <rect width="100" height="100" fill="#E9EDF1"/>
-    <path d="M76 100 L100 76 L100 100 Z" fill="#FF5A00"/>
+    <path d="M76 100 L100 76 L100 100 Z" fill="#7C6E2F"/>
     <g transform="translate(26.36,18.00) scale(0.229704)" fill="#1F2630">
       <rect class="cls-5" x="26.14" y="225.26" width="41.88" height="53.35"/>
       <rect class="cls-2" x="1.81" y="62.8" width="38.49" height="42.03" transform="translate(-62.76 104.86) rotate(-90)"/>
