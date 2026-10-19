@@ -289,6 +289,8 @@
   .igcard .ighead .loc{ font-weight:400; font-size:10.5px; color:#8a919c; }
   .igcard .ighead .dots{ margin-left:auto; color:#3D4653; letter-spacing:2px; font-weight:600; }
   .igcard .igimg{ aspect-ratio:1; background:var(--slate); position:relative; overflow:hidden; }
+  .igcard .igimg .igphoto{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  .igcard .igimg .igshade{ position:absolute; inset:0; background:linear-gradient(to bottom, rgba(21,26,34,.7) 0%, rgba(21,26,34,.25) 50%, rgba(21,26,34,.75) 100%); }
   .igcard .igimg .igey{ position:absolute; top:9%; left:9%; color:rgba(255,255,255,.8); font-family:'Barlow Semi Condensed'; font-size:9px; letter-spacing:.24em; text-transform:uppercase; }
   .igcard .igimg .ightxt{ position:absolute; top:20%; left:9%; right:14%; color:#fff; font-family:'Barlow'; font-weight:600; font-size:clamp(17px,1.6vw,24px); line-height:1.12; }
   .igcard .igimg .iglogo{ position:absolute; bottom:9%; left:9%; width:32%; }
@@ -645,6 +647,8 @@
             <div class="dots">···</div>
           </div>
           <div class="igimg">
+            <img class="igphoto" src="img/first-3.jpg" alt="">
+            <div class="igshade"></div>
             <div class="igey">Now leasing</div>
             <div class="ightxt">See the city before it sees you<span style="color:var(--orange);">.</span></div>
             <img class="iglogo" src="logo-white.png" alt="">
