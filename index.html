@@ -120,6 +120,12 @@
   .markrow .c2 img{ filter:brightness(0) invert(1); max-width:65%; max-height:70%; }
   .markrow .c3{ background:var(--mist); }
   .markrow .c3 img{ max-width:65%; max-height:70%; }
+  .variantrow{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
+  @media (max-width:760px){ .variantrow{ grid-template-columns:1fr; } }
+  .variantrow .card{ aspect-ratio:16/9; }
+  .variantrow .card img{ max-width:72%; max-height:none; }
+  .variantrow .v-light{ background:#fff; } .variantrow .v-mist{ background:var(--mist); }
+  .variantrow .v-ink{ background:var(--ink); border:1px solid rgba(255,255,255,.14); }
 
   /* the cut */
   #cut{ background:#fff; }
@@ -358,6 +364,27 @@
   footer .base a{ color:rgba(255,255,255,.5); text-decoration:none; transition:color .3s; }
   footer .base a:hover{ color:var(--orange); }
   footer .fcut{ position:absolute; right:0; top:0; width:clamp(60px,7vw,110px); aspect-ratio:1; background:var(--orange); clip-path:polygon(0 0,100% 0,100% 100%); }
+
+  /* First Olive - versterkt (okt 2026): accent */
+  #vision > .eyebrow, #cut > .eyebrow, #type > .eyebrow, #photo > .eyebrow, .cols3 .eyebrow{ color:var(--orange); }
+  .bigtype .lt{ color:var(--orange); }
+  .cutrules .rule{ border-top-color:var(--orange); }
+  .typescale{ border-top-color:var(--orange); }
+  .poster .pey, .sheet .fey{ color:var(--orange); }
+
+  /* First Olive - vlakken */
+  .marquee{ background:var(--orange); } .marquee .o{ color:var(--ink); }
+  .quote{ background:var(--orange); }
+  .quote .sd .banner{ background:var(--ink); } .quote .sd.neg .banner{ background:var(--slate); }
+  .markgrid .fcard{ background:var(--orange); }
+  .bcard.front{ background:var(--orange); }
+
+  /* First Olive - tweede merkkleur */
+  .cutcard.divider{ background:var(--orange); }
+  footer{ background:var(--orange); }
+  footer a.btn{ background:var(--ink); } footer a.btn:hover{ background:#151A22; }
+  footer .fcut{ background:var(--ink); } footer .big .o{ color:var(--ink); }
+  footer .base{ color:rgba(255,255,255,.75); border-top-color:rgba(255,255,255,.3); } footer .base a{ color:rgba(255,255,255,.75); } footer .base a:hover{ color:var(--ink); }
 </style>
 </head>
 <body>
@@ -396,7 +423,7 @@
 <section id="vision">
   <span class="chnum" aria-hidden="true">01</span>
   <span class="eyebrow reveal">Vision - 01</span>
-  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:1100px;">Not the loudest building - <span style="color:var(--slate);">the best positioned one.</span></h2>
+  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:1100px;">Not the loudest building - <span style="color:var(--orange);">the best positioned one.</span></h2>
   <div class="cols3">
     <div class="reveal d1"><span class="eyebrow">Brand vision</span><p class="body">The brand speaks with the calm confidence of prime real estate: precise, architectural and welcoming. Every expression reinforces one promise - being first.</p></div>
     <div class="reveal d2"><span class="eyebrow">Positioning</span><p class="body">First location, first impression, first choice. FIRST doesn't shout about being first; it simply is - and it shows, in every layout and every word.</p></div>
@@ -408,7 +435,7 @@
   <span class="chnum" aria-hidden="true">02</span>
   <span class="eyebrow reveal" style="color:rgba(255,255,255,.6);">Brandmark - 02</span>
   <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:900px;">One wordmark. One monogram.<br>Both carry the cut.</h2>
-  <p class="body reveal d2" style="max-width:640px; margin-top:20px;">The angled terminal of the T points forward and upward. The F&nbsp;monogram distils that gesture into a single mark - built for app icons, favicons, signage and small applications where the full wordmark can't breathe.</p>
+  <p class="body reveal d2" style="max-width:640px; margin-top:20px;">The angled terminal of the T points forward and upward. The F&nbsp;monogram distils that gesture into a single mark - built for app icons, favicons, signage and small applications where the full wordmark can't breathe. As a variant, the F can also lead the wordmark itself.</p>
   <div class="markgrid">
     <div class="card wordcard reveal"><span class="tag" style="color:var(--slate);">Primary - wordmark</span><img src="logo-fc.png" alt="FIRST Rotterdam wordmark"></div>
     <div class="card fcard reveal d1"><span class="tag" style="color:rgba(255,255,255,.75);">Monogram - the F</span><img src="logo-f-3d.svg" alt="F monogram"></div>
@@ -418,6 +445,13 @@
     <div class="card c3 reveal d2"><span class="tag" style="color:var(--slate);">Monogram on light</span><img src="logo-f-3d.svg" alt=""></div>
     <div class="card c5 reveal d3"><span class="tag" style="color:var(--slate);">F in First Olive</span><img src="logo-f-olive.svg" alt="F monogram"></div>
     <div class="card c6 reveal d3"><span class="tag" style="color:var(--slate);">F in Skyline Ink</span><img src="logo-f-ink.svg" alt="F monogram in dark blue"></div>
+  </div>
+  <span class="eyebrow reveal" style="display:block; margin-top:clamp(48px,6vw,96px); color:rgba(255,255,255,.6);">Variant - the F leads</span>
+  <div class="variantrow">
+    <div class="card v-light reveal"><span class="tag" style="color:var(--slate);">Variant - FIRST Slate</span><img src="logo-variant-f-slate.png" alt="FIRST Rotterdam wordmark with the F monogram as first letter"></div>
+    <div class="card v-mist reveal d1"><span class="tag" style="color:var(--slate);">Variant - F in First Olive</span><img src="logo-variant-f-olive.png" alt="FIRST Rotterdam wordmark with an olive F monogram"></div>
+    <div class="card v-ink reveal d1"><span class="tag" style="color:rgba(255,255,255,.8);">Variant - on Skyline Ink</span><img src="logo-variant-f-white.png" alt=""></div>
+    <div class="card v-ink reveal d2"><span class="tag" style="color:rgba(255,255,255,.8);">Variant - white with olive F</span><img src="logo-variant-f-white-olive.png" alt=""></div>
   </div>
 </section>
 
@@ -448,19 +482,19 @@
     <div class="rule reveal"><b>Once per layout</b><span>One cut is confident, two is noise. The point may close exactly one headline per layout.</span></div>
     <div class="rule reveal d1"><b>Always anchored</b><span>The corner sits flush in a corner, the divider runs edge to edge. The cut never floats.</span></div>
     <div class="rule reveal d2"><b>One angle</b><span>The slope always matches the T's terminal. Never mirror it to point backwards or down.</span></div>
-    <div class="rule reveal d3"><b>Olive, exclusively</b><span>Only the cut and the point carry First Olive. Nothing else ever does.</span></div>
+    <div class="rule reveal d3"><b>Olive leads</b><span>Olive is the second brand colour. On an olive surface the cut turns Skyline Ink.</span></div>
   </div>
 </section>
 
 <section id="color" style="background:var(--mist);">
   <span class="chnum" aria-hidden="true">04</span>
   <span class="eyebrow reveal">Color - 04</span>
-  <h2 class="h-lg reveal d1" style="margin-top:18px;">Calm slate carries the brand.<br><span style="color:var(--slate);">First Olive points the way.</span></h2>
-  <p class="body reveal d2" style="max-width:620px; margin-top:20px;">Click a swatch to copy its hex value. White and neutrals dominate; slate structures; olive only signals - never large surfaces, never long copy.</p>
+  <h2 class="h-lg reveal d1" style="margin-top:18px;">Slate and olive,<br><span style="color:var(--orange);">side by side.</span></h2>
+  <p class="body reveal d2" style="max-width:620px; margin-top:20px;">Click a swatch to copy its hex value. Slate structures, First Olive leads the eye - on surfaces, the cut, the point and the monogram. Ink for text, mist for calm. Never long copy in olive.</p>
   <div class="swatches">
     <div class="sw reveal" data-hex="#7B8899" style="background:#7B8899; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">FIRST Slate</span><span class="hx">#7B8899</span></div>
-    <div class="sw reveal d1" data-hex="#1F2630" style="background:#1F2630; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">Skyline Ink</span><span class="hx">#1F2630</span></div>
     <div class="sw reveal d2" data-hex="#7C6E2F" style="background:#7C6E2F; color:#FFFFFF;"><span class="copied">Copied ✓</span><span class="nm">First Olive</span><span class="hx">#7C6E2F</span></div>
+    <div class="sw reveal d1" data-hex="#1F2630" style="background:#1F2630; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">Skyline Ink</span><span class="hx">#1F2630</span></div>
     <div class="sw reveal d1" data-hex="#E9EDF1" style="background:#E9EDF1; border:1px solid var(--slate-60);"><span class="copied">Copied ✓</span><span class="nm">Mist</span><span class="hx">#E9EDF1</span></div>
   </div>
 </section>
@@ -507,7 +541,7 @@
     </div>
     <div class="trow">
       <span class="tl">Eyebrow</span>
-      <div class="t-eyebrow-demo" style="color:var(--slate);">Leasing - available now</div>
+      <div class="t-eyebrow-demo" style="color:var(--orange);">Leasing - available now</div>
       <div class="meta">Barlow Semi Cond. Medium 500<br>14px / caps / +28% tracking<br>Above every title</div>
     </div>
     <div class="trow">
@@ -529,7 +563,7 @@
       <p class="body" style="margin-top:16px;">Never more than two Barlow weights per layout. Titles in sentence case. Eyebrows always uppercase with wide tracking. Body never below 15px or its print equivalent.</p>
     </div>
     <div class="demo">
-      <div class="t-eyebrow-demo" style="color:var(--slate); font-size:12px;">Now leasing - floor 12</div>
+      <div class="t-eyebrow-demo" style="color:var(--orange); font-size:12px;">Now leasing - floor 12</div>
       <div class="t-h1" style="font-size:clamp(22px,2.2vw,34px); margin-top:10px;">1.240 m² ready for your name<span style="color:var(--orange);">.</span></div>
       <p class="t-body-demo" style="margin-top:14px; font-size:14.5px;">A full floor with daylight on four sides, directly above the lobby of Rotterdam's best-connected address. Available from Q3 2026.</p>
       <p class="t-caption" style="margin-top:14px; font-size:11.5px;">Floorplans and specifications via Cushman &amp; Wakefield.</p>
@@ -652,7 +686,7 @@
           <div class="bcard back">
             <div class="bn">J. Bryant</div>
             <div class="bl">Leasing manager<br>first@cushwake.com<br>firstrotterdam.nl</div>
-            <img src="logo-f-ink.svg" alt="">
+            <img src="logo-f-olive.svg" alt="">
             <div class="bcut"></div>
           </div>
         </div>
