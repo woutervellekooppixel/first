@@ -11,8 +11,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Semi+Condensed:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --slate:#7C6E2F; --ink:#1F2630; --orange:#7B8899; --on-accent:#FFFFFF;
-    --mist:#E9EDF1; --slate-60:#A79D73;
+    --slate:#7B8899; --ink:#1F2630; --olive:#7C6E2F; --on-accent:#FFFFFF;
+    --mist:#E9EDF1; --slate-60:#A6B0BD;
     --pad: clamp(20px, 5vw, 96px);
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -49,7 +49,7 @@
   }
   nav.scrolled{ background:rgba(255,255,255,.86); backdrop-filter:blur(14px); box-shadow:0 1px 0 rgba(31,38,48,.08); }
   nav .brand{ display:flex; align-items:center; gap:12px; }
-  nav .brand img.word{ height:24px; transition:filter .4s; }
+  nav .brand img.word{ height:32px; transition:filter .4s; }
   nav:not(.scrolled) .brand img.word{ filter:brightness(0) invert(1); }
   nav:not(.scrolled) .links a{ color:rgba(255,255,255,.85); }
   nav .links{ display:flex; gap:clamp(12px,2vw,30px); }
@@ -57,8 +57,8 @@
     font-family:'Barlow Semi Condensed',sans-serif; font-size:13.5px; letter-spacing:.16em;
     text-transform:uppercase; text-decoration:none; color:var(--ink); transition:color .3s;
   }
-  nav .links a:hover{ color:var(--orange); }
-  #progress{ position:fixed; top:0; left:0; height:3px; background:var(--orange); width:0; z-index:101; }
+  nav .links a:hover{ color:var(--olive); }
+  #progress{ position:fixed; top:0; left:0; height:3px; background:var(--olive); width:0; z-index:101; }
   @media (max-width:860px){ nav .links{ display:none; } }
 
   header.hero{
@@ -72,9 +72,9 @@
   .hero .shade{ position:absolute; inset:0; background:linear-gradient(to top, rgba(21,26,34,.82) 0%, rgba(21,26,34,.25) 45%, rgba(21,26,34,.35) 100%); }
   .hero .inner{ position:relative; padding:0 var(--pad) clamp(48px,8vw,110px); width:100%; }
   .hero h1{ font-size:clamp(42px,7.4vw,128px); font-weight:600; line-height:1.02; letter-spacing:-.02em; }
-  .hero h1 .accent{ color:var(--orange); }
+  .hero h1 .accent{ color:var(--olive); }
   .hero .sub{ margin-top:24px; max-width:560px; font-weight:300; font-size:clamp(15px,1.3vw,20px); line-height:1.65; color:rgba(255,255,255,.85); }
-  .hero .cut{ position:absolute; right:0; bottom:0; width:clamp(60px,8vw,130px); aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .hero .cut{ position:absolute; right:0; bottom:0; width:clamp(60px,8vw,130px); aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); }
   .scrollcue{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); width:2px; height:52px; overflow:hidden; }
   .scrollcue:after{ content:''; position:absolute; top:-52px; left:0; width:2px; height:52px; background:#fff; animation:cue 1.8s cubic-bezier(.65,0,.35,1) infinite; }
   @keyframes cue{ 60%,100%{ transform:translateY(104px);} }
@@ -89,7 +89,7 @@
     font-family:'Barlow',sans-serif; font-weight:600; font-size:clamp(18px,2vw,30px);
     letter-spacing:.06em; margin-right:56px;
   }
-  .marquee .o{ color:var(--orange); }
+  .marquee .o{ color:var(--olive); }
   @keyframes scrollx{ to{ transform:translateX(-50%);} }
 
   .cols3{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(24px,3vw,56px); margin-top:clamp(36px,5vw,80px); }
@@ -109,7 +109,7 @@
   .card .tag{ position:absolute; top:18px; left:22px; font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase; opacity:.6; }
   .card img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
   .markgrid .wordcard{ background:var(--mist); }
-  .markgrid .wordcard img{ max-width:85%; max-height:none; }
+  .markgrid .wordcard img{ max-width:46%; max-height:none; }
   .markgrid .fcard{ background:var(--slate); }
   .markgrid .fcard img{ filter:brightness(0) invert(1); max-width:65%; max-height:70%; }
   .markrow{ display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
@@ -123,9 +123,10 @@
   .variantrow{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2.6vw,40px); margin-top:clamp(20px,2.6vw,40px); }
   @media (max-width:760px){ .variantrow{ grid-template-columns:1fr; } }
   .variantrow .card{ aspect-ratio:16/9; }
-  .variantrow .card img{ max-width:72%; max-height:none; }
+  .variantrow .card img{ max-width:50%; max-height:none; }
   .variantrow .v-light{ background:#fff; } .variantrow .v-mist{ background:var(--mist); }
   .variantrow .v-ink{ background:var(--ink); border:1px solid rgba(255,255,255,.14); }
+  .variantrow .v-olive{ background:var(--olive); }
 
   /* the cut */
   #cut{ background:#fff; }
@@ -134,14 +135,14 @@
   @media (max-width:560px){ .cutgrid{ grid-template-columns:1fr; } }
   .cutcard{ border-radius:2px; position:relative; overflow:hidden; aspect-ratio:1; background:var(--mist); border:1px solid var(--slate-60); }
   .cutcard .lbl{ position:absolute; top:20px; left:24px; font-family:'Barlow Semi Condensed',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--slate); z-index:2; }
-  .cutcard .corner{ position:absolute; right:0; bottom:0; width:34%; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); transition:width .6s cubic-bezier(.16,1,.3,1); }
+  .cutcard .corner{ position:absolute; right:0; bottom:0; width:34%; aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); transition:width .6s cubic-bezier(.16,1,.3,1); }
   .cutcard:hover .corner{ width:46%; }
   .cutcard .arrow{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
   .cutcard .arrow svg{ width:clamp(90px,9vw,140px); transition:transform .6s cubic-bezier(.16,1,.3,1); }
   .cutcard:hover .arrow svg{ transform:translate(10px,-10px); }
   .cutcard .point{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
   .cutcard .point span{ font-family:'Barlow',sans-serif; font-weight:600; font-size:clamp(48px,4.6vw,76px); color:var(--ink); }
-  .cutcard .point b{ color:var(--orange); font-weight:600; display:inline-block; transition:transform .6s cubic-bezier(.16,1,.3,1); }
+  .cutcard .point b{ color:var(--olive); font-weight:600; display:inline-block; transition:transform .6s cubic-bezier(.16,1,.3,1); }
   .cutcard:hover .point b{ transform:scale(1.6) translateY(-5px); }
   .cutcard.divider{ background:var(--slate); border:none; }
   .cutcard.divider .half{ position:absolute; inset:0; background:var(--ink); clip-path:polygon(0 0, 72% 0, 38% 100%, 0 100%); transition:clip-path .6s cubic-bezier(.16,1,.3,1); }
@@ -189,7 +190,7 @@
     padding:clamp(18px,2vw,30px) 0; border-bottom:1px solid var(--mist);
   }
   @media (max-width:960px){ .trow{ grid-template-columns:1fr; gap:8px; } }
-  .trow .tl{ font-family:'Barlow Semi Condensed',sans-serif; font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--orange); }
+  .trow .tl{ font-family:'Barlow Semi Condensed',sans-serif; font-size:12.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--olive); }
   .trow .meta{
     font-family:'Barlow Semi Condensed',sans-serif; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--slate); line-height:2;
     align-self:stretch; display:flex; flex-direction:column; justify-content:center;
@@ -205,7 +206,7 @@
   .inpractice{ margin-top:clamp(40px,5vw,76px); display:grid; grid-template-columns:1fr 1.1fr; gap:clamp(24px,3vw,56px); align-items:center; background:var(--mist); border-radius:2px; padding:clamp(24px,3.4vw,64px); }
   @media (max-width:960px){ .inpractice{ grid-template-columns:1fr; } }
   .inpractice .demo{ background:#fff; border-radius:2px; box-shadow:0 24px 60px rgba(31,38,48,.12); padding:clamp(24px,2.8vw,48px); position:relative; overflow:hidden; }
-  .inpractice .demo .cutc{ position:absolute; right:0; bottom:0; width:52px; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .inpractice .demo .cutc{ position:absolute; right:0; bottom:0; width:52px; aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); }
 
   .photogrid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:clamp(36px,5vw,72px); }
   @media (max-width:860px){ .photogrid{ grid-template-columns:1fr; } }
@@ -230,7 +231,7 @@
   .quote .sd{ background:#fff; color:var(--ink); border-radius:2px; overflow:hidden; }
   .quote .sd .banner{
     display:block; padding:11px 22px; font-family:'Barlow Semi Condensed',sans-serif; font-size:13px;
-    letter-spacing:.24em; text-transform:uppercase; color:var(--on-accent); background:var(--orange);
+    letter-spacing:.24em; text-transform:uppercase; color:var(--on-accent); background:var(--olive);
   }
   .quote .sd.neg .banner{ background:var(--ink); }
   .quote .sd p{ font-weight:300; font-size:clamp(15px,1.2vw,19px); line-height:1.6; padding:20px 24px 24px; }
@@ -257,7 +258,7 @@
   .poster .pey{ font-family:'Barlow Semi Condensed'; font-weight:500; font-size:clamp(7px,.6vw,9px); letter-spacing:.24em; text-transform:uppercase; color:var(--slate); }
   .poster .phead{ font-family:'Barlow'; font-weight:600; font-size:clamp(20px,2vw,30px); line-height:1.08; letter-spacing:-.01em; margin-top:6px; }
   .poster .plogo{ position:absolute; bottom:7%; left:9%; width:32%; }
-  .poster .pcut{ position:absolute; right:0; bottom:0; width:14%; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .poster .pcut{ position:absolute; right:0; bottom:0; width:14%; aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); }
 
   .scene-slate{ background:linear-gradient(135deg, #8A7C3B, #6F622A); }
   .phone{
@@ -294,7 +295,7 @@
   .igcard .igimg .igey{ position:absolute; top:9%; left:9%; color:rgba(255,255,255,.8); font-family:'Barlow Semi Condensed'; font-size:9px; letter-spacing:.24em; text-transform:uppercase; }
   .igcard .igimg .ightxt{ position:absolute; top:20%; left:9%; right:14%; color:#fff; font-family:'Barlow'; font-weight:600; font-size:clamp(17px,1.6vw,24px); line-height:1.12; }
   .igcard .igimg .iglogo{ position:absolute; bottom:9%; left:9%; width:32%; }
-  .igcard .igimg .igcut{ position:absolute; right:0; bottom:0; width:16%; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .igcard .igimg .igcut{ position:absolute; right:0; bottom:0; width:16%; aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); }
   .igcard .igact{ display:flex; gap:12px; padding:12px 14px 4px; }
   .igcard .igact svg{ width:20px; height:20px; stroke:var(--ink); fill:none; stroke-width:1.8; }
   .igcard .iglikes{ padding:2px 14px 14px; font-size:12px; }
@@ -314,7 +315,7 @@
   .sheet .fstats div{ border-top:1.5px solid var(--ink); padding-top:5px; font-family:'Barlow Semi Condensed'; font-size:7px; letter-spacing:.12em; text-transform:uppercase; color:var(--slate); line-height:1.7; }
   .sheet .fstats b{ display:block; font-family:'Barlow'; font-weight:600; font-size:12px; color:var(--ink); letter-spacing:0; }
   .sheet .flogo{ position:absolute; bottom:7%; left:8%; width:30%; }
-  .sheet .fcut{ position:absolute; right:0; bottom:0; width:13%; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .sheet .fcut{ position:absolute; right:0; bottom:0; width:13%; aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); }
 
   .scene-ink{ background:linear-gradient(150deg, #262E3A, #171C24); }
   .cards{ position:relative; width:clamp(260px,24vw,360px); height:clamp(220px,20vw,300px); }
@@ -325,7 +326,7 @@
   .bcard.back .bl{ font-family:'Barlow Semi Condensed'; font-size:8.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--slate); line-height:2.2; margin-top:4px; }
   .bcard.back .bn{ font-family:'Barlow'; font-weight:600; font-size:13px; color:var(--ink); margin-top:11%; }
   .bcard.back img{ position:absolute; bottom:9%; right:8%; width:15%; }
-  .bcard.back .bcut{ position:absolute; right:0; top:0; width:16%; aspect-ratio:1; background:var(--orange); clip-path:polygon(0 0,100% 0,100% 100%); }
+  .bcard.back .bcut{ position:absolute; right:0; top:0; width:16%; aspect-ratio:1; background:var(--olive); clip-path:polygon(0 0,100% 0,100% 100%); }
 
   .scene-cloudy{ background:linear-gradient(160deg, #F2F4F7, #E2E7EC); }
   .browser{
@@ -346,47 +347,50 @@
   .browser .view .bnav{ position:absolute; top:7%; left:7%; right:7%; display:flex; justify-content:space-between; align-items:center; }
   .browser .view .bnav img{ width:14%; }
   .browser .view .bnav span{ color:rgba(255,255,255,.8); font-family:'Barlow Semi Condensed'; font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; }
-  .browser .view .bcut2{ position:absolute; right:0; bottom:0; width:9%; aspect-ratio:1; background:var(--orange); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .browser .view .bcut2{ position:absolute; right:0; bottom:0; width:9%; aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); }
 
-  footer{ background:var(--ink); color:#fff; padding:clamp(56px,8vw,110px) var(--pad) 40px; position:relative; overflow:hidden; }
-  footer .top{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px; }
-  footer .big{ font-size:clamp(34px,5vw,84px); font-weight:600; line-height:1.05; letter-spacing:-.015em; }
-  footer .big .o{ color:var(--orange); }
-  footer a.btn{
-    display:inline-block; background:var(--orange); color:var(--on-accent); text-decoration:none;
-    font-family:'Barlow Semi Condensed',sans-serif; letter-spacing:.18em; text-transform:uppercase; font-size:14px;
-    padding:16px 28px; border-radius:2px; transition:transform .3s, background .3s;
-  }
-  footer a.btn:hover{ transform:translateY(-3px); background:#66717F; }
-  footer .base{
-    margin-top:clamp(48px,7vw,90px); padding-top:28px; border-top:1px solid rgba(255,255,255,.16);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
-    font-family:'Barlow Semi Condensed',sans-serif; font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5);
-  }
-  footer .base a{ color:rgba(255,255,255,.5); text-decoration:none; transition:color .3s; }
-  footer .base a:hover{ color:var(--orange); }
-  footer .fcut{ position:absolute; right:0; top:0; width:clamp(60px,7vw,110px); aspect-ratio:1; background:var(--orange); clip-path:polygon(0 0,100% 0,100% 100%); }
+  /* Slot (okt 2026): tegenhanger van de opening - foto, slogan, woordmerk en downloads */
+  footer.closing{ position:relative; color:#fff; background:var(--ink); overflow:hidden; }
+  .closing .cphoto{ position:relative; min-height:clamp(560px,86vh,900px); display:flex; align-items:flex-end; overflow:hidden; }
+  .closing .cbg{ position:absolute; inset:0; background:url('img/first-5.jpg') center 38%/cover no-repeat; }
+  .closing .cshade{ position:absolute; inset:0; background:linear-gradient(to top, rgba(21,26,34,.96) 0%, rgba(21,26,34,.62) 38%, rgba(21,26,34,.18) 72%, rgba(21,26,34,.38) 100%); }
+  .closing .cinner{ position:relative; width:100%; padding:0 var(--pad) clamp(56px,7vw,100px); }
+  .closing .eyebrow{ display:block; color:rgba(255,255,255,.72); margin-bottom:22px; }
+  .closing .big{ font-size:clamp(46px,8.2vw,144px); font-weight:600; line-height:.98; letter-spacing:-.025em; }
+  .closing .big .o{ color:var(--olive); }
+  .closing .crow{ margin-top:clamp(40px,5vw,72px); padding-top:clamp(26px,3vw,40px); border-top:1px solid rgba(255,255,255,.22);
+    display:flex; justify-content:space-between; align-items:center; gap:28px; flex-wrap:wrap; }
+  .closing .cmark{ width:clamp(130px,12vw,190px); display:block; }
+  .closing .cbtns{ display:flex; gap:12px; flex-wrap:wrap; }
+  .closing a.btn{ display:inline-flex; align-items:center; gap:12px; background:var(--olive); color:#fff; text-decoration:none;
+    font-family:'Barlow Semi Condensed',sans-serif; font-weight:500; letter-spacing:.18em; text-transform:uppercase; font-size:14px;
+    padding:17px 26px; border-radius:2px; transition:transform .3s, background .3s, box-shadow .3s; }
+  .closing a.btn:hover{ transform:translateY(-3px); background:#6A5E28; }
+  .closing a.btn.ghost{ background:transparent; box-shadow:inset 0 0 0 1px rgba(255,255,255,.5); }
+  .closing a.btn.ghost:hover{ background:rgba(255,255,255,.08); box-shadow:inset 0 0 0 1px #fff; }
+  .closing a.btn svg{ width:11px; height:11px; flex:none; }
+  .closing .ccut{ position:absolute; right:0; bottom:0; width:clamp(60px,8vw,130px); aspect-ratio:1; background:var(--olive); clip-path:polygon(100% 0,100% 100%,0 100%); }
+  .closing .base{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; padding:26px var(--pad) 30px;
+    font-family:'Barlow Semi Condensed',sans-serif; font-size:12.5px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.5); }
+  .closing .base a{ color:rgba(255,255,255,.5); text-decoration:none; transition:color .3s; }
+  .closing .base a:hover{ color:#fff; }
 
   /* First Olive - versterkt (okt 2026): accent */
-  #vision > .eyebrow, #cut > .eyebrow, #type > .eyebrow, #photo > .eyebrow, .cols3 .eyebrow{ color:var(--orange); }
-  .bigtype .lt{ color:var(--orange); }
-  .cutrules .rule{ border-top-color:var(--orange); }
-  .typescale{ border-top-color:var(--orange); }
-  .poster .pey, .sheet .fey{ color:var(--orange); }
+  #vision > .eyebrow, #cut > .eyebrow, #type > .eyebrow, #photo > .eyebrow, .cols3 .eyebrow{ color:var(--olive); }
+  .bigtype .lt{ color:var(--olive); }
+  .cutrules .rule{ border-top-color:var(--olive); }
+  .typescale{ border-top-color:var(--olive); }
+  .poster .pey, .sheet .fey{ color:var(--olive); }
 
   /* First Olive - vlakken */
-  .marquee{ background:var(--orange); } .marquee .o{ color:var(--ink); }
-  .quote{ background:var(--orange); }
+  .marquee{ background:var(--olive); } .marquee .o{ color:var(--ink); }
+  .quote{ background:var(--olive); }
   .quote .sd .banner{ background:var(--ink); } .quote .sd.neg .banner{ background:var(--slate); }
-  .markgrid .fcard{ background:var(--orange); }
-  .bcard.front{ background:var(--orange); }
+  .markgrid .fcard{ background:var(--olive); }
+  .bcard.front{ background:var(--olive); }
 
   /* First Olive - tweede merkkleur */
-  .cutcard.divider{ background:var(--orange); }
-  footer{ background:var(--orange); }
-  footer a.btn{ background:var(--ink); } footer a.btn:hover{ background:#151A22; }
-  footer .fcut{ background:var(--ink); } footer .big .o{ color:var(--ink); }
-  footer .base{ color:rgba(255,255,255,.75); border-top-color:rgba(255,255,255,.3); } footer .base a{ color:rgba(255,255,255,.75); } footer .base a:hover{ color:var(--ink); }
+  .cutcard.divider{ background:var(--olive); }
 </style>
 </head>
 <body>
@@ -425,7 +429,7 @@
 <section id="vision">
   <span class="chnum" aria-hidden="true">01</span>
   <span class="eyebrow reveal">Vision - 01</span>
-  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:1100px;">Not the loudest building - <span style="color:var(--orange);">the best positioned one.</span></h2>
+  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:1100px;">Not the loudest building - <span style="color:var(--olive);">the best positioned one.</span></h2>
   <div class="cols3">
     <div class="reveal d1"><span class="eyebrow">Brand vision</span><p class="body">The brand speaks with the calm confidence of prime real estate: precise, architectural and welcoming. Every expression reinforces one promise - being first.</p></div>
     <div class="reveal d2"><span class="eyebrow">Positioning</span><p class="body">First location, first impression, first choice. FIRST doesn't shout about being first; it simply is - and it shows, in every layout and every word.</p></div>
@@ -437,17 +441,24 @@
   <span class="chnum" aria-hidden="true">02</span>
   <span class="eyebrow reveal" style="color:rgba(255,255,255,.6);">Brandmark - 02</span>
   <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:900px;">One wordmark.<br>It carries the cut.</h2>
-  <p class="body reveal d2" style="max-width:640px; margin-top:20px;">The angled terminal of the T points forward and upward. That gesture - the cut - returns throughout the identity, so the wordmark can stay calm and consistent wherever it appears.</p>
+  <p class="body reveal d2" style="max-width:640px; margin-top:20px;">The angled terminal of the T points forward and upward. That gesture - the cut - returns throughout the identity, so the wordmark can stay calm and consistent wherever it appears. OFFICES completes the name in the same DIN letter, exactly as it stands on the building.</p>
   <div class="markgrid" style="grid-template-columns:1fr;">
     <div class="card wordcard reveal" style="aspect-ratio:16/9;"><span class="tag" style="color:var(--slate);">Primary - wordmark</span><img src="logo-fc.png" alt="First Offices wordmark"></div>
+  </div>
+  <span class="eyebrow reveal" style="display:block; margin-top:clamp(48px,6vw,96px); color:rgba(255,255,255,.6);">Colourways</span>
+  <div class="variantrow">
+    <div class="card v-ink reveal"><span class="tag" style="color:rgba(255,255,255,.8);">White on Skyline Ink</span><img src="logo-white.png" alt="First Offices wordmark in white"></div>
+    <div class="card v-olive reveal d1"><span class="tag" style="color:rgba(255,255,255,.85);">White on First Olive</span><img src="logo-white.png" alt=""></div>
+    <div class="card v-light reveal d1"><span class="tag" style="color:var(--slate);">First Olive on white</span><img src="logo-olive.png" alt="First Offices wordmark in olive"></div>
+    <div class="card v-light reveal d2"><span class="tag" style="color:var(--slate);">Skyline Ink on white</span><img src="logo-ink.png" alt="First Offices wordmark in ink"></div>
   </div>
 </section>
 
 <section id="cut">
   <span class="chnum" aria-hidden="true">03</span>
   <span class="eyebrow reveal">The cut - 03</span>
-  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:980px;">The cut<span style="color:var(--orange);">.</span> Our sharpest asset.</h2>
-  <p class="body reveal d2" style="max-width:640px; margin-top:20px;">Two gestures carry the brand. The cut - sliced from the T - anchors a corner, points the way or splits a surface. The point is the full stop behind every promise: one period that ends the headline.</p>
+  <h2 class="h-lg reveal d1" style="margin-top:18px; max-width:980px;">The cut<span style="color:var(--olive);">.</span> Our sharpest asset.</h2>
+  <p class="body reveal d2" style="max-width:640px; margin-top:20px;">Two gestures own First Olive. The cut - sliced from the T - anchors a corner, points the way or splits a surface. The point is the full stop behind every promise: one olive period that ends the headline.</p>
   <div class="cutgrid">
     <div class="cutcard reveal">
       <span class="lbl">01 - The corner</span>
@@ -455,7 +466,7 @@
     </div>
     <div class="cutcard reveal d1">
       <span class="lbl">02 - The pointer</span>
-      <div class="arrow"><svg viewBox="0 0 100 100" fill="none"><path d="M24 76 L72 28 M36 28 H72 V64" stroke="#7B8899" stroke-width="14"/></svg></div>
+      <div class="arrow"><svg viewBox="0 0 100 100" fill="none"><path d="M24 76 L72 28 M36 28 H72 V64" stroke="#7C6E2F" stroke-width="14"/></svg></div>
     </div>
     <div class="cutcard divider reveal d2">
       <span class="lbl" style="color:rgba(255,255,255,.75);">03 - The divider</span>
@@ -477,8 +488,8 @@
 <section id="color" style="background:var(--mist);">
   <span class="chnum" aria-hidden="true">04</span>
   <span class="eyebrow reveal">Color - 04</span>
-  <h2 class="h-lg reveal d1" style="margin-top:18px;">Olive leads,<br><span style="color:var(--orange);">slate supports.</span></h2>
-  <p class="body reveal d2" style="max-width:620px; margin-top:20px;">Click a swatch to copy its hex value. First Olive is the primary brand colour - on surfaces, headlines and the brand moments. First Slate supports: the cut, the point and quiet details. Ink for text, mist for calm. Never long copy in olive.</p>
+  <h2 class="h-lg reveal d1" style="margin-top:18px;">Olive leads,<br><span style="color:var(--olive);">slate supports.</span></h2>
+  <p class="body reveal d2" style="max-width:620px; margin-top:20px;">Click a swatch to copy its hex value. First Olive is the primary brand colour: it owns the surfaces, the cut and the point. First Slate supports - the wordmark, labels and quiet details. Ink for text, mist for calm. Never long copy in olive.</p>
   <div class="swatches">
     <div class="sw reveal" data-hex="#7C6E2F" style="background:#7C6E2F; color:#FFFFFF;"><span class="copied">Copied ✓</span><span class="nm">First Olive</span><span class="hx">#7C6E2F</span></div>
     <div class="sw reveal d2" data-hex="#7B8899" style="background:#7B8899; color:#fff;"><span class="copied">Copied ✓</span><span class="nm">First Slate</span><span class="hx">#7B8899</span></div>
@@ -514,7 +525,7 @@
   <div class="typescale reveal">
     <div class="trow">
       <span class="tl">Display</span>
-      <div class="t-display">Start at the top<span style="color:var(--orange);">.</span></div>
+      <div class="t-display">Start at the top<span style="color:var(--olive);">.</span></div>
       <div class="meta">Barlow SemiBold 600<br>96px / 105% / −1.5% tracking<br>Sentence case · one per page</div>
     </div>
     <div class="trow">
@@ -529,7 +540,7 @@
     </div>
     <div class="trow">
       <span class="tl">Eyebrow</span>
-      <div class="t-eyebrow-demo" style="color:var(--orange);">Leasing - available now</div>
+      <div class="t-eyebrow-demo" style="color:var(--olive);">Leasing - available now</div>
       <div class="meta">Barlow Semi Cond. Medium 500<br>14px / caps / +28% tracking<br>Above every title</div>
     </div>
     <div class="trow">
@@ -551,8 +562,8 @@
       <p class="body" style="margin-top:16px;">Never more than two Barlow weights per layout. Titles in sentence case. Eyebrows always uppercase with wide tracking. Body never below 15px or its print equivalent.</p>
     </div>
     <div class="demo">
-      <div class="t-eyebrow-demo" style="color:var(--orange); font-size:12px;">Now leasing - floor 12</div>
-      <div class="t-h1" style="font-size:clamp(22px,2.2vw,34px); margin-top:10px;">1.240 m² ready for your name<span style="color:var(--orange);">.</span></div>
+      <div class="t-eyebrow-demo" style="color:var(--olive); font-size:12px;">Now leasing - floor 12</div>
+      <div class="t-h1" style="font-size:clamp(22px,2.2vw,34px); margin-top:10px;">1.240 m² ready for your name<span style="color:var(--olive);">.</span></div>
       <p class="t-body-demo" style="margin-top:14px; font-size:14.5px;">A full floor with daylight on four sides, directly above the lobby of Rotterdam's best-connected address. Available from Q3 2026.</p>
       <p class="t-caption" style="margin-top:14px; font-size:11.5px;">Floorplans and specifications via Cushman &amp; Wakefield.</p>
       <div class="cutc"></div>
@@ -597,7 +608,7 @@
           <img class="pimg" src="img/first-5.jpg" alt="">
           <div class="pin">
             <div class="pey">Now leasing</div>
-            <div class="phead">Start<br>at the top<span style="color:var(--orange);">.</span></div>
+            <div class="phead">Start<br>at the top<span style="color:var(--olive);">.</span></div>
           </div>
           <img class="plogo" src="logo-fc.png" alt="">
           <div class="pcut"></div>
@@ -615,7 +626,7 @@
             <div class="notch"></div>
             <div class="bars"><i class="on"></i><i class="on"></i><i></i><i></i></div>
             <div class="acct"><span>firstoffices · 2h</span></div>
-            <div class="stext">First in<br>every sense<span style="color:var(--orange);">.</span></div>
+            <div class="stext">First in<br>every sense<span style="color:var(--olive);">.</span></div>
             <img class="slogo" src="logo-white.png" alt="">
             <div class="swipe">▲ &nbsp;Plan a tour</div>
           </div>
@@ -635,7 +646,7 @@
             <img class="igphoto" src="img/first-3.jpg" alt="">
             <div class="igshade"></div>
             <div class="igey">Now leasing</div>
-            <div class="ightxt">See the city before it sees you<span style="color:var(--orange);">.</span></div>
+            <div class="ightxt">See the city before it sees you<span style="color:var(--olive);">.</span></div>
             <img class="iglogo" src="logo-white.png" alt="">
             <div class="igcut"></div>
           </div>
@@ -654,7 +665,7 @@
       <div class="mockwrap">
         <div class="sheet">
           <div class="fey">Factsheet - Floor 12</div>
-          <div class="fhead">1.240 m²<br>ready for<br>your name<span style="color:var(--orange);">.</span></div>
+          <div class="fhead">1.240 m²<br>ready for<br>your name<span style="color:var(--olive);">.</span></div>
           <img class="fimg" src="img/first-7.jpg" alt="">
           <div class="fstats">
             <div>Floor area<b>1.240 m²</b></div>
@@ -690,7 +701,7 @@
             <img class="bimg" src="img/first-2.jpg" alt="">
             <div class="bshade"></div>
             <div class="bnav"><img src="logo-white.png" alt=""><span>Plan a tour</span></div>
-            <div class="bhead">The city<br>starts here<span style="color:var(--orange);">.</span></div>
+            <div class="bhead">The city<br>starts here<span style="color:var(--olive);">.</span></div>
             <div class="bcut2"></div>
           </div>
         </div>
@@ -700,20 +711,28 @@
   </div>
 </section>
 
-<footer>
-  <div class="fcut"></div>
-  <div class="top">
-    <div>
-      <img src="logo-white.png" style="width:clamp(160px,18vw,280px); margin-bottom:34px;" alt="First Offices">
-      <div class="big">First in<br>every sense<span class="o">.</span></div>
+<footer class="closing">
+  <div class="cphoto">
+    <div class="cbg" aria-hidden="true"></div>
+    <div class="cshade" aria-hidden="true"></div>
+    <div class="cinner">
+      <span class="eyebrow reveal">First Offices - Rotterdam Centraal</span>
+      <div class="big reveal d1">First in<br>every sense<span class="o">.</span></div>
+      <div class="crow reveal d2">
+        <img class="cmark" src="logo-white.png" alt="First Offices">
+        <div class="cbtns">
+          <a class="btn" href="First_Offices_logo_package.zip" download>Logo package <svg viewBox="0 0 100 100" fill="none"><path d="M50 18 V78 M24 54 L50 80 L76 54" stroke="#fff" stroke-width="14"/></svg></a>
+          <a class="btn ghost" href="First_Offices_brand_guidelines.pdf" download>Brand guidelines PDF <svg viewBox="0 0 100 100" fill="none"><path d="M50 18 V78 M24 54 L50 80 L76 54" stroke="#fff" stroke-width="14"/></svg></a>
+        </div>
+      </div>
     </div>
-    <a class="btn" href="#top">Back to first <svg viewBox="0 0 100 100" fill="none" style="width:11px; height:11px; margin-left:5px; vertical-align:-1px;"><path d="M24 76 L72 28 M36 28 H72 V64" stroke="#fff" stroke-width="16"/></svg></a>
+    <div class="ccut" aria-hidden="true"></div>
   </div>
   <div class="base">
     <span>Leasing - Cushman &amp; Wakefield</span>
-    <span>Brand guidelines V1 - 2026</span>
+    <span>Brand guidelines V2 - October 2026</span>
     <span>Design - <a href="https://wouter.studio" target="_blank" rel="noopener">wouter.studio</a></span>
-    <span>firstoffices.nl</span>
+    <a href="#top">Back to first &uarr;</a>
   </div>
 </footer>
 
